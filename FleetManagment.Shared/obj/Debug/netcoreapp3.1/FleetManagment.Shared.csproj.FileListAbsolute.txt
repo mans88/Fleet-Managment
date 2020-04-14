@@ -1,0 +1,8 @@
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.Shared\bin\Debug\netcoreapp3.1\FleetManagment.Shared.deps.json
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.Shared\bin\Debug\netcoreapp3.1\FleetManagment.Shared.dll
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.Shared\bin\Debug\netcoreapp3.1\FleetManagment.Shared.pdb
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.Shared\obj\Debug\netcoreapp3.1\FleetManagment.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.Shared\obj\Debug\netcoreapp3.1\FleetManagment.Shared.AssemblyInfoInputs.cache
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.Shared\obj\Debug\netcoreapp3.1\FleetManagment.Shared.AssemblyInfo.cs
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.Shared\obj\Debug\netcoreapp3.1\FleetManagment.Shared.dll
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.Shared\obj\Debug\netcoreapp3.1\FleetManagment.Shared.pdb
