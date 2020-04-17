@@ -20,16 +20,18 @@ namespace Fleet_Managment_DAL.Repositories
             this.context = context;
         }
 
-        public IEnumerable GetAll()
-        => context.Brands
-            .Include(x => x.Models)
+        public IEnumerable<BrandTO> GetAll()
+        => context
+            .Brands
+            .AsNoTracking()
             .Select(x => x.ToTransfertObject())
             .ToList();
 
         public BrandTO GetByID(int id)
         => context.Brands
-            .Include(x => x.Models)
-            .FirstOrDefault(x => x.Id == id).ToTransfertObject();
+            .AsNoTracking()
+            .FirstOrDefault(x => x.Id == id)
+            .ToTransfertObject();
 
         public BrandTO Insert(BrandTO entity)
         {
@@ -45,23 +47,26 @@ namespace Fleet_Managment_DAL.Repositories
 
         public bool RemoveById(int id)
         {
-            var entity = context.Set<Brand>().Find(id);
-            var tracking = context.Set<Brand>().Remove(entity);
-            return tracking.State == EntityState.Deleted;
+            var toRemove = context
+                .Brands
+                .FirstOrDefault(f => f.Id == id);
+
+            var removed = context
+                .Brands
+                .Remove(toRemove);
+
+            return removed.State == EntityState.Deleted;
         }
 
         public BrandTO Update(BrandTO entity)
         {
             if (entity is null) throw new ArgumentException(nameof(entity));
-            try
-            {
-                context.Attach(entity.ToEntity()).State = EntityState.Modified;
-                return entity;
-            }
-            catch
-            {
-                throw;
-            }
+
+            var modified = context.Brands.FirstOrDefault(b => b.Id == entity.Id);
+            modified.Cars = entity.Cars?.Select(c => c.ToEntity()).ToList();
+            modified.Models = entity.Models?.Select(c => c.ToEntity()).ToList();
+            modified.Name = entity.Name;
+            return modified.ToTransfertObject();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Fleet_Managment_DAL.Extensions
             {
                 Id = model.Id,
                 Name = model.Name,
-                Brand = model.Brand.ToTransfertObject(),
+                Brand = model.Brand?.ToTransfertObject(),
                 Fules = model.ModelFuels?.Select(x => x.Fuel.ToTransfertObject()).ToList()
             };
         }
@@ -29,15 +29,16 @@ namespace Fleet_Managment_DAL.Extensions
             {
                 Id = model.Id,
                 Name = model.Name,
-                Brand = model.Brand.ToEntity(),
-                ModelFuels = model.CreatingKind(),
+                Brand = model.Brand?.ToEntity(),
+                ModelFuels = model?.CreatingKind(),
             };
         }
 
         public static ICollection<ModelFuel> CreatingKind(this ModelTO model)
         {
             ICollection<ModelFuel> kinds = new List<ModelFuel>();
-
+            if (model.Fules == null)
+                return kinds;
             foreach (var fuel in model.Fules)
             {
                 var kind = new ModelFuel

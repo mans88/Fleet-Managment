@@ -16,14 +16,14 @@ namespace Fleet_Managment_DAL.Extensions
                 Id = car.Id,
                 Chassis = car.Chassis,
                 EndDateContract = car.EndDateContract,
-                IdBrandNavigation = car.Brand.ToTransfertObject(),
+                Brand = car.Brand?.ToTransfertObject(),
                 Km = car.Km,
                 Numberplate = car.Numberplate,
                 StartDateContract = car.StartDateContract,
                 Year = car.Year,
                 VehicleStatus = car.VehicleStatus,
-                Technicalcontrols = car.TechnicalControls.Select(t => t.ToTransfertObject()).ToList(),
-                Insurances = car.Insurances.Select(x => x.ToTransfertObject()).ToList()
+                Technicalcontrols = car.TechnicalControls?.Select(t => t.ToTransfertObject()).ToList(),
+                Insurances = car.Insurances?.Select(x => x.ToTransfertObject()).ToList()
             };
         }
 
@@ -36,14 +36,14 @@ namespace Fleet_Managment_DAL.Extensions
                 Id = car.Id,
                 Chassis = car.Chassis,
                 EndDateContract = car.EndDateContract,
-                Brand = car.IdBrandNavigation.ToEntity(),
+                Brand = car.Brand?.ToEntity(),
                 Km = car.Km,
                 Numberplate = car.Numberplate,
                 StartDateContract = car.StartDateContract,
                 Year = car.Year,
                 VehicleStatus = car.VehicleStatus,
-                TechnicalControls = car.Technicalcontrols.Select(c => c.ToEntity()).ToList(),
-                Insurances = car.Insurances.Select(c => c.ToEntity()).ToList(),
+                TechnicalControls = car.Technicalcontrols?.Select(c => c.ToEntity()).ToList(),
+                Insurances = car.Insurances?.Select(c => c.ToEntity()).ToList(),
             };
         }
     }

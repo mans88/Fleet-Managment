@@ -20,17 +20,17 @@ namespace Fleet_Managment_DAL.Repositories
             this.context = context;
         }
 
-        public IEnumerable GetAll()
+        public IEnumerable<CarTO> GetAll()
         => context.Cars
-            .Include(x => x.Brand)
-            .ThenInclude(x => x.Models)
+            //.Include(x => x.Brand)
+            //.ThenInclude(x => x.Models)
             .AsNoTracking()
             .Select(x => x.ToTransfertObject());
 
         public CarTO GetByID(int id)
         => context.Cars
-            .Include(x => x.Brand)
-            .ThenInclude(x => x.Models)
+            //.Include(x => x.Brand)
+            //.ThenInclude(x => x.Models)
             .AsNoTracking()
             .FirstOrDefault(x => x.Id == id).ToTransfertObject();
 
@@ -55,15 +55,19 @@ namespace Fleet_Managment_DAL.Repositories
         public CarTO Update(CarTO entity)
         {
             if (entity is null) throw new ArgumentException(nameof(entity));
-            try
-            {
-                context.Attach(entity.ToEntity()).State = EntityState.Modified;
-                return entity;
-            }
-            catch
-            {
-                throw;
-            }
+            var updated = context.Cars.FirstOrDefault(x => x.Id == entity.Id);
+            updated.Brand = entity.Brand?.ToEntity();
+            updated.Chassis = entity.Chassis;
+            updated.EndDateContract = entity.EndDateContract;
+            updated.Insurances = entity.Insurances?.Select(x => x.ToEntity()).ToList();
+            updated.Km = entity.Km;
+            updated.Numberplate = entity.Numberplate;
+            updated.StartDateContract = entity.StartDateContract;
+            updated.TechnicalControls = entity.Technicalcontrols?.Select(x => x.ToEntity()).ToList();
+            updated.VehicleStatus = entity.VehicleStatus;
+            updated.Year = entity.Year;
+
+            return updated.ToTransfertObject();
         }
     }
 }

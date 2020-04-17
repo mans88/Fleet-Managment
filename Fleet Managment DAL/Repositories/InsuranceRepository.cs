@@ -20,17 +20,17 @@ namespace Fleet_Managment_DAL.Repositories
             this.context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public IEnumerable GetAll()
+        public IEnumerable<InsuranceTO> GetAll()
             => context.Insurances
-               .Include(x => x.Car)
-               .ThenInclude(x => x.Brand)
-               .ThenInclude(x => x.Models)
+               //.Include(x => x.Car)
+               //.ThenInclude(x => x.Brand)
+               //.ThenInclude(x => x.Models)
                .AsNoTracking().Select(x => x.ToTransfertObject());
 
         public InsuranceTO GetByID(int id)
          => context.Insurances
-                .Include(x => x.Car)
-                .ThenInclude(x => x.Brand)
+                //.Include(x => x.Car)
+                //.ThenInclude(x => x.Brand)
                 .AsNoTracking().FirstOrDefault(x => x.Id == id).ToTransfertObject();
 
         public InsuranceTO Insert(InsuranceTO entity)
@@ -53,15 +53,13 @@ namespace Fleet_Managment_DAL.Repositories
         public InsuranceTO Update(InsuranceTO entity)
         {
             if (entity is null) throw new ArgumentException(nameof(entity));
-            try
-            {
-                context.Attach(entity.ToEntity()).State = EntityState.Modified;
-                return entity;
-            }
-            catch
-            {
-                throw;
-            }
+            var insuranceModified = context.Insurances.FirstOrDefault(x => x.Id == entity.Id);
+            insuranceModified.Name = entity.Name;
+            insuranceModified.StartDate = entity.StartDate;
+            insuranceModified.EndDate = entity.EndDate;
+            insuranceModified.Car = entity.Car?.ToEntity();
+
+            return insuranceModified.ToTransfertObject();
         }
     }
 }

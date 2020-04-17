@@ -18,7 +18,7 @@ namespace Fleet_Managment_DAL.Extensions
                 Name = insurance.Name,
                 StartDate = insurance.StartDate,
                 EndDate = insurance.EndDate,
-                Car = insurance.Car.ToEntity(),
+                Car = insurance.Car?.ToEntity(),
             };
         }
 
@@ -32,7 +32,7 @@ namespace Fleet_Managment_DAL.Extensions
                 Name = insurance.Name,
                 StartDate = insurance.StartDate,
                 EndDate = insurance.EndDate,
-                Car = insurance.Car.ToTransfertObject()
+                Car = insurance.Car?.ToTransfertObject()
             };
         }
     }

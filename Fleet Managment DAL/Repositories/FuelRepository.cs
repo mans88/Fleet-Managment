@@ -20,21 +20,21 @@ namespace Fleet_Managment_DAL.Repositories
             this.context = context ?? throw new ArgumentNullException($"{nameof(context)} in FuelRepository");
         }
 
-        public IEnumerable GetAll()
+        public IEnumerable<FuelTO> GetAll()
         => context.Fuels
-            .Include(x => x.ModelFuels)
-            .ThenInclude(x => x.Model)
+            //.Include(x => x.ModelFuels)
+            //.ThenInclude(x => x.Model)
             .AsNoTracking().Select(f => f.ToTransfertObject()).ToList();
 
         public FuelTO GetByID(int fuelId)
             => context.Fuels
-            .Include(x => x.ModelFuels)
-            .ThenInclude(x => x.Model)
+            //.Include(x => x.ModelFuels)
+            //.ThenInclude(x => x.Model)
             .AsNoTracking().FirstOrDefault(f => f.Id == fuelId).ToTransfertObject();
 
         public FuelTO Insert(FuelTO fuel)
         {
-            if (fuel is null) throw new ArgumentException(nameof(fuel));
+            if (fuel is null) throw new ArgumentNullException(nameof(fuel));
 
             return context.Fuels.Add(fuel.ToEntity()).Entity.ToTransfertObject();
         }
@@ -53,16 +53,10 @@ namespace Fleet_Managment_DAL.Repositories
 
         public FuelTO Update(FuelTO entity)
         {
-            if (entity is null) throw new ArgumentException(nameof(entity));
-            try
-            {
-                context.Attach(entity.ToEntity()).State = EntityState.Modified;
-                return entity;
-            }
-            catch
-            {
-                throw;
-            };
+            if (entity is null) throw new ArgumentNullException(nameof(entity));
+            var updated = context.Fuels.FirstOrDefault(x => x.Id == entity.Id);
+            updated.Name = entity.Name;
+            return updated.ToTransfertObject();
         }
     }
 }

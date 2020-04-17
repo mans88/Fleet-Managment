@@ -18,7 +18,7 @@ namespace Fleet_Managment_DAL.Extensions
                 Comment = technicalControl.Comment,
                 StartDate = technicalControl.StartDate,
                 EndDate = technicalControl.EndDate,
-                Car = technicalControl.Car.ToEntity(),
+                Car = technicalControl.Car?.ToEntity(),
             };
         }
 
@@ -32,7 +32,7 @@ namespace Fleet_Managment_DAL.Extensions
                 Comment = technicalControl.Comment,
                 StartDate = technicalControl.StartDate,
                 EndDate = technicalControl.EndDate,
-                Car = technicalControl.Car.ToTransfertObject()
+                Car = technicalControl.Car?.ToTransfertObject()
             };
         }
     }

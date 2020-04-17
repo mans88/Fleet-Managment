@@ -20,13 +20,13 @@ namespace Fleet_Managment_DAL.Repositories
             this.context = context;
         }
 
-        public IEnumerable GetAll()
+        public IEnumerable<TechnicalControlTO> GetAll()
         => context.TechnicalControls
-            .Include(x => x.Car)
-                .ThenInclude(x => x.Brand)
-                .ThenInclude(x => x.Models)
-                .ThenInclude(x => x.ModelFuels)
-                .ThenInclude(x => x.Fuel)
+            //.Include(x => x.Car)
+            //    .ThenInclude(x => x.Brand)
+            //    .ThenInclude(x => x.Models)
+            //    .ThenInclude(x => x.ModelFuels)
+            //    .ThenInclude(x => x.Fuel)
             .AsNoTracking()
             .Select(x => x.ToTransfertObject()).ToList();
 
@@ -35,19 +35,19 @@ namespace Fleet_Managment_DAL.Repositories
             if (id <= 0) throw new ArgumentException();
 
             return context.TechnicalControls
-                .Include(x => x.Car)
-                .ThenInclude(x => x.Brand)
-                .ThenInclude(x => x.Models)
-                .ThenInclude(x => x.ModelFuels)
-                .ThenInclude(x => x.Fuel)
-                .AsNoTracking()
+                //.Include(x => x.Car)
+                //.ThenInclude(x => x.Brand)
+                //.ThenInclude(x => x.Models)
+                //.ThenInclude(x => x.ModelFuels)
+                //.ThenInclude(x => x.Fuel)
+                //.AsNoTracking()
                 .FirstOrDefault(x => x.Id == id)
                 .ToTransfertObject();
         }
 
         public TechnicalControlTO Insert(TechnicalControlTO entity)
         {
-            if (entity is null) throw new ArgumentException(nameof(entity));
+            if (entity is null) throw new ArgumentNullException(nameof(entity));
 
             return context.TechnicalControls.Add(entity.ToEntity()).Entity.ToTransfertObject();
         }
@@ -59,23 +59,27 @@ namespace Fleet_Managment_DAL.Repositories
 
         public bool RemoveById(int id)
         {
-            var entity = context.Set<Brand>().Find(id);
-            var tracking = context.Set<Brand>().Remove(entity);
-            return tracking.State == EntityState.Deleted;
+            var toRemove = context
+               .TechnicalControls
+               .FirstOrDefault(f => f.Id == id);
+
+            var removed = context
+                .TechnicalControls
+                .Remove(toRemove);
+
+            return removed.State == EntityState.Deleted;
         }
 
         public TechnicalControlTO Update(TechnicalControlTO entity)
         {
-            if (entity is null) throw new ArgumentException(nameof(entity));
-            try
-            {
-                context.Attach(entity.ToEntity()).State = EntityState.Modified;
-                return entity;
-            }
-            catch
-            {
-                throw;
-            }
+            if (entity is null) throw new ArgumentNullException(nameof(entity));
+            var updated = context.TechnicalControls.FirstOrDefault(x => x.Id == entity.Id);
+            updated.Car = entity.Car?.ToEntity();
+            updated.Comment = entity.Comment;
+            updated.EndDate = entity.EndDate;
+            updated.StartDate = entity.StartDate;
+
+            return updated.ToTransfertObject();
         }
     }
 }

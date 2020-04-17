@@ -9,7 +9,7 @@ namespace FleetManagment.Shared.Interfaces
     {
         TType Insert(TType entity);
 
-        IEnumerable GetAll();
+        IEnumerable<TType> GetAll();
 
         TType GetByID(int id);
 

@@ -21,19 +21,20 @@ namespace Fleet_Managment_DAL.Repositories
         }
 
         public ModelTO GetByID(int modelId)
-            => context.Models.Include(x => x.ModelFuels)
-            .ThenInclude(x => x.Fuel)
+            => context.Models
+            //.Include(x => x.ModelFuels)
+            //.ThenInclude(x => x.Fuel)
             .AsNoTracking().FirstOrDefault(f => f.Id == modelId).ToTransfertObject();
 
-        public IEnumerable GetAll()
+        public IEnumerable<ModelTO> GetAll()
         => context.Models
-            .Include(x => x.ModelFuels)
-            .ThenInclude(x => x.Fuel)
+            //.Include(x => x.ModelFuels)
+            //.ThenInclude(x => x.Fuel)
             .AsNoTracking().Select(f => f.ToTransfertObject()).ToList();
 
         public ModelTO Insert(ModelTO model)
         {
-            if (model is null) throw new ArgumentException(nameof(model));
+            if (model is null) throw new ArgumentNullException(nameof(model));
 
             return context.Models.Add(model.ToEntity()).Entity.ToTransfertObject();
         }
@@ -45,23 +46,25 @@ namespace Fleet_Managment_DAL.Repositories
 
         public bool RemoveById(int id)
         {
-            var entity = context.Set<Brand>().Find(id);
-            var tracking = context.Set<Brand>().Remove(entity);
-            return tracking.State == EntityState.Deleted;
+            var toRemove = context
+              .Models
+              .FirstOrDefault(f => f.Id == id);
+
+            var removed = context
+                .Models
+                .Remove(toRemove);
+
+            return removed.State == EntityState.Deleted;
         }
 
         public ModelTO Update(ModelTO entity)
         {
-            if (entity is null) throw new ArgumentException(nameof(entity));
-            try
-            {
-                context.Attach(entity.ToEntity()).State = EntityState.Modified;
-                return entity;
-            }
-            catch
-            {
-                throw;
-            }
+            if (entity is null) throw new ArgumentNullException(nameof(entity));
+            var updated = context.Models.FirstOrDefault(x => x.Id == entity.Id);
+            updated.Name = entity.Name;
+            updated.Brand = entity.Brand?.ToEntity();
+
+            return updated.ToTransfertObject();
         }
     }
 }

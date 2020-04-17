@@ -14,10 +14,10 @@ namespace Fleet_Managment_DAL.Extensions
 
             return new BrandTO
             {
-                Cars = brand.Cars.Select(x => x.ToTransfertObject()).ToList(),
-                Models = brand.Models.Select(x => x.ToTransfertObject()).ToList(),
-                Name = brand.Name,
-                Id = brand.Id
+                Id = brand.Id,
+                Cars = brand.Cars?.Select(x => x.ToTransfertObject()).ToList(),
+                Models = brand.Models?.Select(x => x.ToTransfertObject()).ToList(),
+                Name = brand.Name
             };
         }
 
@@ -29,8 +29,8 @@ namespace Fleet_Managment_DAL.Extensions
             {
                 Id = brand.Id,
                 Name = brand.Name,
-                Cars = brand.Cars.Select(c => c.ToEntity()).ToList(),
-                Models = brand.Models.Select(m => m.ToEntity()).ToList()
+                Cars = brand.Cars?.Select(c => c.ToEntity()).ToList(),
+                Models = brand.Models?.Select(m => m.ToEntity()).ToList()
             };
         }
     }

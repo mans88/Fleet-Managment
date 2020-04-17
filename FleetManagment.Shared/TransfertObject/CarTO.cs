@@ -13,7 +13,7 @@ namespace FleetManagment.Shared.TransfertObject
         public DateTime StartDateContract { get; set; }
         public DateTime EndDateContract { get; set; }
         public int Km { get; set; }
-        public BrandTO IdBrandNavigation { get; set; }
+        public BrandTO Brand { get; set; }
         public ICollection<InsuranceTO> Insurances { get; set; }
         public ICollection<TechnicalControlTO> Technicalcontrols { get; set; }
     }

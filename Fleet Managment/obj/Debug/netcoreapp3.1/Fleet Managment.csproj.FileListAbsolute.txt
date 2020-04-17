@@ -1,10 +1,3 @@
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.csprojAssemblyReference.cache
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.csproj.CoreCompileInputs.cache
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.RazorAssemblyInfo.cache
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.RazorAssemblyInfo.cs
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.AssemblyInfoInputs.cache
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.AssemblyInfo.cs
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -53,6 +46,13 @@ C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcore
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\FleetManagment.BLL.pdb
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\FleetManagment.DAL.pdb
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\FleetManagment.Shared.pdb
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.csprojAssemblyReference.cache
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.csproj.CoreCompileInputs.cache
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.RazorAssemblyInfo.cache
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.RazorAssemblyInfo.cs
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.AssemblyInfoInputs.cache
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.AssemblyInfo.cs
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.TagHelpers.input.cache
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.TagHelpers.output.cache
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.RazorCoreGenerate.cache
