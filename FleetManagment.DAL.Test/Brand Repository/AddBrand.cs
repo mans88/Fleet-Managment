@@ -1,14 +1,12 @@
 ﻿using Fleet_Managment_DAL.Entities;
+using Fleet_Managment_DAL.Interfaces;
 using Fleet_Managment_DAL.Repositories;
-using FleetManagment.Shared;
 using FleetManagment.Shared.TransfertObject;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace FleetManagment.DAL.Test.Brand_Repository
 {

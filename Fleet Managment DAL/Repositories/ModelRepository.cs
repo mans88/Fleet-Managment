@@ -1,10 +1,9 @@
 ﻿using Fleet_Managment_DAL.Entities;
 using Fleet_Managment_DAL.Extensions;
-using FleetManagment.Shared;
+using Fleet_Managment_DAL.Interfaces;
 using FleetManagment.Shared.TransfertObject;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 

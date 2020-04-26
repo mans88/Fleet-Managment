@@ -2,9 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Fleet_Managment_BLL.Interfaces;
+using Fleet_Managment_BLL.Services;
+using Fleet_Managment_DAL;
+using Fleet_Managment_DAL.Entities;
+using Fleet_Managment_DAL.Interfaces;
+using FleetManagment.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +31,9 @@ namespace Fleet_Managment
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<FleetManagmentContext>((options => options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Fleet Managment;Trusted_Connection=True;")));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ICarService, CarService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

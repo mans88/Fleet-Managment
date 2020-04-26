@@ -1,9 +1,7 @@
 ﻿using Fleet_Managment_DAL.Entities;
+using Fleet_Managment_DAL.Interfaces;
 using Fleet_Managment_DAL.Repositories;
-using FleetManagment.Shared;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Fleet_Managment_DAL
 {
