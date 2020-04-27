@@ -1,4 +1,5 @@
-﻿using Fleet_Managment_BLL.Interfaces;
+﻿using Fleet_Managment_BLL.Domain;
+using Fleet_Managment_BLL.Interfaces;
 using Fleet_Managment_BLL.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -26,10 +27,17 @@ namespace Fleet_Managment.Controllers
             return View(carService.GetAll());
         }
 
-        //[HttpPost]
-        //public IActionResult CreatCar(Car car)
-        //{
-        //    return RedirectToAction("CarAvailable");
-        //}
+        [HttpGet]
+        public IActionResult CreateCar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateCar(Car car)
+        {
+            carService.Insert(car);
+            return RedirectToAction("CarAvailable");
+        }
     }
 }

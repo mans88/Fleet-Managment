@@ -17,18 +17,25 @@ namespace Fleet_Managment_BLL.Services
             this.unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        public bool Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Car> GetAll() => unitOfWork.CarRepository.GetAll().Select(c => c.ToDomain()).ToList();
 
         public Car GetById(int id) => unitOfWork.CarRepository.GetByID(id).ToDomain();
 
         public Car Insert(Car car)
         {
-            throw new NotImplementedException();
+            if (car is null)
+                throw new ArgumentNullException(nameof(car));
+
+            return unitOfWork.CarRepository.Insert(car.ToTransfertObject()).ToDomain();
+        }
+
+        public bool RemoveById(int id) => unitOfWork.CarRepository.RemoveById(id);
+
+        public Car Update(Car car)
+        {
+            if (car is null)
+                throw new ArgumentNullException(nameof(car));
+            return unitOfWork.CarRepository.Update(car.ToTransfertObject()).ToDomain();
         }
     }
 }

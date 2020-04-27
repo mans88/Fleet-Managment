@@ -166,3 +166,4 @@ C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcore
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.csproj.CoreCompileInputs.cache
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\Car\CarAvailable.cshtml.g.cs
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\Car\CreateCar.cshtml.g.cs
