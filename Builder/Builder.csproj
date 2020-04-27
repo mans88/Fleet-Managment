@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fleet Managment BLL\FleetManagment.BLL.csproj" />
+    <ProjectReference Include="..\Fleet Managment DAL\FleetManagment.DAL.csproj" />
+    <ProjectReference Include="..\FleetManagment.BLL.Test\FleetManagment.BLL.Test.csproj" />
+    <ProjectReference Include="..\FleetManagment.DAL.Test\FleetManagment.DAL.Test.csproj" />
+    <ProjectReference Include="..\FleetManagment.Shared\FleetManagment.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
