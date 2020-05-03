@@ -625,7 +625,7 @@
           }
         }
       },
-      "Moq/4.13.1": {
+      "Moq/4.14.1": {
         "type": "package",
         "dependencies": {
           "Castle.Core": "4.4.0",
@@ -2397,6 +2397,7 @@
           "MSTest.TestAdapter": "2.1.0",
           "MSTest.TestFramework": "2.1.0",
           "Microsoft.NET.Test.Sdk": "16.5.0",
+          "Moq": "4.14.1",
           "coverlet.collector": "1.2.0"
         },
         "compile": {
@@ -3360,10 +3361,10 @@
         "version.txt"
       ]
     },
-    "Moq/4.13.1": {
-      "sha512": "ic4m9/b10tz9oRB1Oi5bW7E/FS6Pd2SH5OJFhlmhUJkQhiV5FyrIRxVUEaG5KOpSpcfSPGAVW4rRZt6OzrS5zg==",
+    "Moq/4.14.1": {
+      "sha512": "yRrU+cLNBtZpL9eLVyicOENMPUx7DjOOB+VPgDhrXaCjhfob661d4HJ82YJpPUBmlYoivNA8F4R+NIMfoKbD7g==",
       "type": "package",
-      "path": "moq/4.13.1",
+      "path": "moq/4.14.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3371,7 +3372,7 @@
         "lib/net45/Moq.xml",
         "lib/netstandard2.0/Moq.dll",
         "lib/netstandard2.0/Moq.xml",
-        "moq.4.13.1.nupkg.sha512",
+        "moq.4.14.1.nupkg.sha512",
         "moq.nuspec"
       ]
     },

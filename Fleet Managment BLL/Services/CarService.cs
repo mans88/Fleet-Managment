@@ -25,8 +25,9 @@ namespace Fleet_Managment_BLL.Services
         {
             if (car is null)
                 throw new ArgumentNullException(nameof(car));
-
-            return unitOfWork.CarRepository.Insert(car.ToTransfertObject()).ToDomain();
+            var carAdded = unitOfWork.CarRepository.Insert(car.ToTransfertObject()).ToDomain();
+            unitOfWork.SaveChanges();
+            return carAdded; ;
         }
 
         public bool RemoveById(int id) => unitOfWork.CarRepository.RemoveById(id);

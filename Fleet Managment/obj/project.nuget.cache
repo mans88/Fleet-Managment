@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oPDPpkOttbFFOmEE01QNHF9CaKu8CGM0V46odjm7JI9H6Xtx48t+GDQYPf9wdgHCkiVsz1MSGXHkFoqNWO3y6Q==",
+  "dgSpecHash": "hwu47x6XKqz3hTsS7mZ8calXmAgVj/OSvP3fgJRRXOw9/GoUZ6VCwtM8BkDksP40rsn8DKGby1D2zgtpmGO9TQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Manssour\\source\\repos\\Fleet Managment\\Fleet Managment\\FleetManagment.csproj",
+  "projectFilePath": "C:\\Users\\Manssour\\source\\repos\\Fleet Managment\\Fleet Managment\\Fleet Managment.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Manssour\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\Manssour\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
@@ -61,7 +61,7 @@
     "C:\\Users\\Manssour\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\3.1.2\\microsoft.visualstudio.web.codegenerators.mvc.3.1.2.nupkg.sha512",
     "C:\\Users\\Manssour\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Manssour\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
-    "C:\\Users\\Manssour\\.nuget\\packages\\moq\\4.13.1\\moq.4.13.1.nupkg.sha512",
+    "C:\\Users\\Manssour\\.nuget\\packages\\moq\\4.14.1\\moq.4.14.1.nupkg.sha512",
     "C:\\Users\\Manssour\\.nuget\\packages\\mstest.testadapter\\2.1.1\\mstest.testadapter.2.1.1.nupkg.sha512",
     "C:\\Users\\Manssour\\.nuget\\packages\\mstest.testframework\\2.1.1\\mstest.testframework.2.1.1.nupkg.sha512",
     "C:\\Users\\Manssour\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",

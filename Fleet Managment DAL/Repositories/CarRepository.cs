@@ -28,14 +28,17 @@ namespace Fleet_Managment_DAL.Repositories
         public CarTO GetByID(int id)
         => context.Cars
             //.Include(x => x.Brand)
-            //.ThenInclude(x => x.Models)
-            .AsNoTracking()
+            //.AsNoTracking()
             .FirstOrDefault(x => x.Id == id).ToTransfertObject();
 
-        public CarTO Insert(CarTO entity)
+        public CarTO Insert(CarTO car)
         {
-            if (entity is null) throw new ArgumentNullException(nameof(entity));
-            return context.Cars.Add(entity.ToEntity()).Entity.ToTransfertObject();
+            if (car is null) throw new ArgumentNullException(nameof(car));
+            var brand = context.Brands.Find(car.Brand.Id);
+            var entityCar = car.ToEntity();
+            entityCar.Brand = brand;
+            return context.Cars.Add(entityCar).Entity.ToTransfertObject();
+            //return context.Cars.Add(car.ToEntity()).Entity.ToTransfertObject();
         }
 
         public bool Remove(CarTO entity)

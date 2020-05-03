@@ -12,26 +12,42 @@ namespace Fleet_Managment_DAL.Extensions
         {
             if (brand is null) throw new ArgumentNullException(nameof(brand));
 
-            return new BrandTO
+            BrandTO brandTO = new BrandTO
             {
                 Id = brand.Id,
-                Cars = brand.Cars?.Select(x => x.ToTransfertObject()).ToList(),
+                //Cars = brand.Cars?.Select(x => x.ToTransfertObject()).ToList(),
                 Models = brand.Models?.Select(x => x.ToTransfertObject()).ToList(),
                 Name = brand.Name
             };
+
+            if (brandTO.Cars != null)
+            {
+                brandTO.Cars = brand.Cars.Select(b => b.ToTransfertObject()).ToList();
+                brandTO.Cars.Select(s => s.Brand = brandTO);
+            }
+
+            return brandTO;
         }
 
-        public static Brand ToEntity(this BrandTO brand)
+        public static Brand ToEntity(this BrandTO brandTO)
         {
-            if (brand is null) throw new ArgumentNullException(nameof(brand));
+            if (brandTO is null) throw new ArgumentNullException(nameof(brandTO));
 
-            return new Brand
+            Brand brand = new Brand
             {
-                Id = brand.Id,
-                Name = brand.Name,
-                Cars = brand.Cars?.Select(c => c.ToEntity()).ToList(),
-                Models = brand.Models?.Select(m => m.ToEntity()).ToList()
+                Id = brandTO.Id,
+                Name = brandTO.Name,
+                // Cars = brand.Cars?.Select(c => c.ToEntity()).ToList(),
+                Models = brandTO.Models?.Select(m => m.ToEntity()).ToList()
             };
+
+            if (brandTO.Cars != null)
+            {
+                brand.Cars.Select(s => s.Brand = brand);
+                brand.Cars = brandTO.Cars.Select(b => b.ToEntity()).ToList();
+            }
+
+            return brand;
         }
     }
 }

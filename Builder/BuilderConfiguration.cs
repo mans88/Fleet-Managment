@@ -15,6 +15,7 @@ namespace Builder
             services.AddDbContext<FleetManagmentContext>((options => options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Fleet Managment;Trusted_Connection=True;")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICarService, CarService>();
+            services.AddScoped<IBrandService, BrandService>();
         }
     }
 }

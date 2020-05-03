@@ -27,7 +27,7 @@ namespace Fleet_Managment_DAL.Repositories
 
         public BrandTO GetByID(int id)
         => context.Brands
-            .AsNoTracking()
+            //.AsNoTracking()
             .FirstOrDefault(x => x.Id == id)
             .ToTransfertObject();
 

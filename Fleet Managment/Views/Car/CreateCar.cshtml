@@ -1,4 +1,4 @@
-﻿@model Fleet_Managment_BLL.Domain.Car
+﻿@model CarAddedViewModel
 
 @{
     ViewData["Title"] = "CreateCar";
@@ -12,45 +12,51 @@
     <div class="col-md-4">
         <form asp-action="CreateCar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<div class="form-group">
-                    <label asp-for="Id" class="control-label"></label>
-                    <input asp-for="Id" class="form-control" />
-                    <span asp-validation-for="Id" class="text-danger"></span>
-                </div>*@
+
             <div class="form-group">
                 <label asp-for="Numberplate" class="control-label"></label>
-                <input asp-for="Numberplate" class="form-control" />
+                <input asp-for="Numberplate" value="1-lds-488" class="form-control" />
                 <span asp-validation-for="Numberplate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Year" class="control-label"></label>
-                <input asp-for="Year" class="form-control" />
+                <input asp-for="Year" asp-format="{0:dd/MM/yyyy}" value="@DateTime.Now" class="form-control" />
                 <span asp-validation-for="Year" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Chassis" class="control-label"></label>
-                <input asp-for="Chassis" class="form-control" />
+                <input asp-for="Chassis" value="ljzlzd-e5fe-e5f49ez" class="form-control" />
                 <span asp-validation-for="Chassis" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="VehicleStatus" class="control-label"></label>
-                <input asp-for="VehicleStatus" class="form-control" />
+                <input asp-for="VehicleStatus" value="Bon" class="form-control" />
                 <span asp-validation-for="VehicleStatus" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="StartDateContract" class="control-label"></label>
-                <input asp-for="StartDateContract" class="form-control" />
+                <input asp-for="StartDateContract" asp-format="{0:dd/MM/yyyy}" value="@DateTime.Now.Date" class="form-control" />
                 <span asp-validation-for="StartDateContract" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EndDateContract" class="control-label"></label>
-                <input asp-for="EndDateContract" class="form-control" />
+                <input asp-for="EndDateContract" value="@DateTime.Now" class="form-control" />
                 <span asp-validation-for="EndDateContract" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Km" class="control-label"></label>
-                <input asp-for="Km" class="form-control" />
+                <input asp-for="Km" value="123456" class="form-control" />
                 <span asp-validation-for="Km" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idBrand"></label>
+                <select asp-for="idBrand" class="">
+                    @foreach (var brand in @ViewBag.Brands)
+                    {
+                        <option value="@brand.Id">@brand.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="idBrand" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="CreateCar" class="btn btn-primary" />

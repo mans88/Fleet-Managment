@@ -6,6 +6,7 @@ C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\FleetManagment.BLL.Test.runtimeconfig.dev.json
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\FleetManagment.BLL.Test.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\FleetManagment.BLL.Test.pdb
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.CodeCoverage.Shim.dll
@@ -34,6 +35,7 @@ C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.Utilities.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.Common.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\testhost.dll
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\Moq.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.BLL.Test\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

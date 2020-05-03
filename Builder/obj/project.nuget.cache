@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7ZhrMayLCg7vsehPeZwkD40fsCLqkYrysIqkb4fugw/osIW7XvxXXolLo9dUHFO5bBno8A0H682jz8aLMBDkiQ==",
+  "dgSpecHash": "GSbTqtjup1MzAQQ3D9OH9oMgr7RhW29aG6BQWIs+h539HLuU6tIYytT76jOqtH36KSwRQ/mtyXfq/vYpTCZZlA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Manssour\\source\\repos\\Fleet Managment\\Builder\\Builder.csproj",
   "expectedPackageFiles": [
@@ -36,7 +36,7 @@
     "C:\\Users\\Manssour\\.nuget\\packages\\microsoft.testplatform.testhost\\16.5.0\\microsoft.testplatform.testhost.16.5.0.nupkg.sha512",
     "C:\\Users\\Manssour\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Manssour\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
-    "C:\\Users\\Manssour\\.nuget\\packages\\moq\\4.13.1\\moq.4.13.1.nupkg.sha512",
+    "C:\\Users\\Manssour\\.nuget\\packages\\moq\\4.14.1\\moq.4.14.1.nupkg.sha512",
     "C:\\Users\\Manssour\\.nuget\\packages\\mstest.testadapter\\2.1.1\\mstest.testadapter.2.1.1.nupkg.sha512",
     "C:\\Users\\Manssour\\.nuget\\packages\\mstest.testframework\\2.1.1\\mstest.testframework.2.1.1.nupkg.sha512",
     "C:\\Users\\Manssour\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",

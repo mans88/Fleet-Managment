@@ -26,6 +26,8 @@ namespace Fleet_Managment_DAL.Entities
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Fleet Managment;Trusted_Connection=True;");
+                optionsBuilder.EnableSensitiveDataLogging();
+                // optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             }
         }
 
