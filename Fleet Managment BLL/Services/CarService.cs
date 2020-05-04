@@ -31,7 +31,12 @@ namespace Fleet_Managment_BLL.Services
             return carAdded; ;
         }
 
-        public bool RemoveById(int id) => unitOfWork.CarRepository.RemoveById(id);
+        public bool RemoveById(int id)
+        {
+            var deleted = unitOfWork.CarRepository.RemoveById(id);
+            unitOfWork.SaveChanges();
+            return deleted;
+        }
 
         public CarTO Update(CarTO car)
         {

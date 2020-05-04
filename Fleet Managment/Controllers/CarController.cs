@@ -58,10 +58,10 @@ namespace Fleet_Managment.Controllers
             return RedirectToAction("CarAvailable");
         }
 
-        [HttpDelete]
+        //[HttpDelete]
         public IActionResult Delete(int id)
         {
-            carService.RemoveById(id);
+            var result = carService.RemoveById(id);
             return RedirectToAction("CarAvailable");
         }
     }

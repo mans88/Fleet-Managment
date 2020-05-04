@@ -1,52 +1,53 @@
 ﻿@model IEnumerable<FleetManagment.Shared.TransfertObject.CarTO>
 
-@{
+    @{
     ViewData["Title"] = "CarAvailable";
-}
+    }
 
-<h1>Véhicule disponible</h1>
+    <h1>Véhicule disponible</h1>
 
-<p>
-    <a asp-action="CreateCar">Ajouter un véhicule</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-
-            <th>
-                @Html.DisplayNameFor(model => model.Numberplate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Year)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Chassis)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VehicleStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDateContract)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndDateContract)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Km)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Brand.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <p>
+        <a asp-action="CreateCar">Ajouter un véhicule</a>
+    </p>
+    <table class="table">
+        <thead>
             <tr>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>*@
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Numberplate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Chassis)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VehicleStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartDateContract)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndDateContract)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Km)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Brand.Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                @*
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Numberplate)
                 </td>
@@ -74,9 +75,9 @@
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Delete", "Delete",  new { id = item.Id })
                 </td>
             </tr>
-        }
-    </tbody>
-</table>
+            }
+        </tbody>
+    </table>
