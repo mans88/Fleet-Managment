@@ -30,7 +30,7 @@ namespace FleetManagment.BLL.Test.Brand_Tests
             var brandSrv = new BrandService(mockUnitOfWork.Object);
 
             //ACT
-            var addedBrand = brandSrv.Insert(new Brand { Name = "VW" });
+            var addedBrand = brandSrv.Insert(new BrandTO { Name = "VW" });
 
             //ASSERT
             Assert.IsNotNull(addedBrand);

@@ -1,8 +1,8 @@
-﻿using Fleet_Managment_BLL.Domain;
+﻿using FleetManagment.Shared.TransfertObject;
 
 namespace Fleet_Managment_BLL.Interfaces
 {
-    public interface IBrandService : IRepository<Brand>
+    public interface IBrandService : IRepository<BrandTO>
     {
     }
 }

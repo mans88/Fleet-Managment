@@ -1,11 +1,8 @@
-﻿using Fleet_Managment_BLL.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using FleetManagment.Shared.TransfertObject;
 
 namespace Fleet_Managment_BLL.Interfaces
 {
-    public interface IInsuranceService : IRepository<Insurance>
+    public interface IInsuranceService : IRepository<InsuranceTO>
     {
     }
 }

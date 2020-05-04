@@ -1,11 +1,8 @@
-﻿using Fleet_Managment_BLL.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using FleetManagment.Shared.TransfertObject;
 
 namespace Fleet_Managment_BLL.Interfaces
 {
-    public interface ITechnicalControl : IRepository<TechnicalControl>
+    public interface ITechnicalControl : IRepository<TechnicalControlTO>
     {
     }
 }

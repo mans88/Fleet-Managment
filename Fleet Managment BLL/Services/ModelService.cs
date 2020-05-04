@@ -2,10 +2,10 @@
 using Fleet_Managment_BLL.Extension;
 using Fleet_Managment_BLL.Interfaces;
 using Fleet_Managment_DAL.Interfaces;
+using FleetManagment.Shared.TransfertObject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Fleet_Managment_BLL.Services
 {
@@ -18,25 +18,25 @@ namespace Fleet_Managment_BLL.Services
             this.unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        public List<Model> GetAll() => unitOfWork.ModelRepository.GetAll().Select(c => c.ToDomain()).ToList();
+        public List<ModelTO> GetAll() => unitOfWork.ModelRepository.GetAll().Select(c => c.ToDomain().ToTransfertObject()).ToList();
 
-        public Model GetById(int id) => unitOfWork.ModelRepository.GetByID(id).ToDomain();
+        public ModelTO GetById(int id) => unitOfWork.ModelRepository.GetByID(id).ToDomain().ToTransfertObject();
 
-        public Model Insert(Model model)
+        public ModelTO Insert(ModelTO model)
         {
             if (model is null)
                 throw new ArgumentNullException(nameof(model));
 
-            return unitOfWork.ModelRepository.Insert(model.ToTransfertObject()).ToDomain();
+            return unitOfWork.ModelRepository.Insert(model.ToDomain().ToTransfertObject());
         }
 
         public bool RemoveById(int id) => unitOfWork.ModelRepository.RemoveById(id);
 
-        public Model Update(Model model)
+        public ModelTO Update(ModelTO model)
         {
             if (model is null)
                 throw new ArgumentNullException(nameof(model));
-            return unitOfWork.ModelRepository.Update(model.ToTransfertObject()).ToDomain();
+            return unitOfWork.ModelRepository.Update(model.ToDomain().ToTransfertObject());
         }
     }
 }

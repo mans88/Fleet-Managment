@@ -34,6 +34,8 @@ namespace Fleet_Managment_DAL.Entities
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ModelFuel>().HasKey(sc => new { sc.ModelId, sc.FuelId });
+            modelBuilder.Entity<ModelFuel>().HasOne(mf => mf.Model).WithMany(m => m.ModelFuels).HasForeignKey(mf => mf.ModelId);
+            modelBuilder.Entity<ModelFuel>().HasOne(mf => mf.Fuel).WithMany(f => f.ModelFuels).HasForeignKey(mf => mf.FuelId);
         }
     }
 }

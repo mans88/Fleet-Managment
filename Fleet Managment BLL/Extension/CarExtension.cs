@@ -18,7 +18,7 @@ namespace Fleet_Managment_BLL.Extension
                 Id = car.Id,
                 Chassis = car.Chassis,
                 EndDateContract = car.EndDateContract,
-                Brand = car.Brand.ToTransfertObject(),
+                Brand = car.Brand?.ToTransfertObject(),
                 Km = car.Km,
                 Numberplate = car.Numberplate,
                 StartDateContract = car.StartDateContract,

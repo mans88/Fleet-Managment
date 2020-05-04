@@ -1,10 +1,9 @@
 ﻿using Fleet_Managment.Models;
-using Fleet_Managment_BLL.Domain;
 using Fleet_Managment_BLL.Interfaces;
+using FleetManagment.Shared.TransfertObject;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Fleet_Managment.Controllers
 {
@@ -35,7 +34,7 @@ namespace Fleet_Managment.Controllers
         [HttpGet]
         public IActionResult CreateCar()
         {
-            List<Brand> brands = brandService.GetAll();
+            List<BrandTO> brands = brandService.GetAll();
             ViewBag.Brands = brands;
             return View();
         }
@@ -43,11 +42,7 @@ namespace Fleet_Managment.Controllers
         [HttpPost]
         public IActionResult CreateCar(CarAddedViewModel carModel)
         {
-            //var brand = brandService.GetById(carModel.Car.Brand.Id);
-            //var car = carModel.Car;
-            //car.Brand = brand;
-            //carService.Insert(carModel.car);
-            Car car = new Car
+            CarTO car = new CarTO
             {
                 Brand = brandService.GetById(carModel.idBrand),
                 Chassis = carModel.Chassis,
@@ -60,6 +55,13 @@ namespace Fleet_Managment.Controllers
             };
 
             carService.Insert(car);
+            return RedirectToAction("CarAvailable");
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(CarTO car)
+        {
+            carService.RemoveById(car.Id);
             return RedirectToAction("CarAvailable");
         }
     }

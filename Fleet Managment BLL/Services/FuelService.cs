@@ -2,12 +2,10 @@
 using Fleet_Managment_BLL.Extension;
 using Fleet_Managment_BLL.Interfaces;
 using Fleet_Managment_DAL.Interfaces;
-using FleetManagment.Shared;
 using FleetManagment.Shared.TransfertObject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Fleet_Managment_BLL.Services
 {
@@ -20,25 +18,25 @@ namespace Fleet_Managment_BLL.Services
             this.unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        public List<Fuel> GetAll() => unitOfWork.FuelRepository.GetAll().Select(c => c.ToDomain()).ToList();
+        public List<FuelTO> GetAll() => unitOfWork.FuelRepository.GetAll().Select(c => c.ToDomain().ToTransfertObject()).ToList();
 
-        public Fuel GetById(int id) => unitOfWork.FuelRepository.GetByID(id).ToDomain();
+        public FuelTO GetById(int id) => unitOfWork.FuelRepository.GetByID(id).ToDomain().ToTransfertObject();
 
-        public Fuel Insert(Fuel fuel)
+        public FuelTO Insert(FuelTO fuel)
         {
             if (fuel is null)
                 throw new ArgumentNullException(nameof(fuel));
 
-            return unitOfWork.FuelRepository.Insert(fuel.ToTransfertObject()).ToDomain();
+            return unitOfWork.FuelRepository.Insert(fuel.ToDomain().ToTransfertObject());
         }
 
         public bool RemoveById(int id) => unitOfWork.FuelRepository.RemoveById(id);
 
-        public Fuel Update(Fuel fuel)
+        public FuelTO Update(FuelTO fuel)
         {
             if (fuel is null)
                 throw new ArgumentNullException(nameof(fuel));
-            return unitOfWork.FuelRepository.Update(fuel.ToTransfertObject()).ToDomain();
+            return unitOfWork.FuelRepository.Update(fuel.ToDomain().ToTransfertObject());
         }
     }
 }

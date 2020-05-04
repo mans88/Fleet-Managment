@@ -23,7 +23,7 @@ namespace FleetManagment.BLL.Test.Model_Tests
 
             var modelSrv = new ModelService(mockUnitOfWork.Object);
             //ACT
-            var added = modelSrv.Insert(new Model { Name = "diesel" });
+            var added = modelSrv.Insert(new ModelTO { Name = "diesel" });
 
             //ASSERT
             Assert.IsNotNull(added);

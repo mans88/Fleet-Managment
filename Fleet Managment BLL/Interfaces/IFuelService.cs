@@ -1,8 +1,8 @@
-﻿using Fleet_Managment_BLL.Domain;
+﻿using FleetManagment.Shared.TransfertObject;
 
 namespace Fleet_Managment_BLL.Interfaces
 {
-    public interface IFuelService : IRepository<Fuel>
+    public interface IFuelService : IRepository<FuelTO>
     {
     }
 }

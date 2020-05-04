@@ -1,11 +1,11 @@
-﻿using FleetManagment.Shared.TransfertObject;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace Fleet_Managment.Models
+namespace Fleet_Managment_BLL.Domain
 {
-    public class CarDisplayViewModel
+    public class CarDomain
     {
+        public int Id { get; set; }
         public string Numberplate { get; set; }
         public DateTime Year { get; set; }
         public string Chassis { get; set; }
@@ -13,7 +13,8 @@ namespace Fleet_Managment.Models
         public DateTime StartDateContract { get; set; }
         public DateTime EndDateContract { get; set; }
         public int Km { get; set; }
-        public List<BrandTO> Brands { get; set; }
-        //public int idBrand { get; set; }
+        public BrandDomain Brand { get; set; }
+        public ICollection<InsuranceDomain> Insurances { get; set; }
+        public ICollection<TechnicalControlDomain> Technicalcontrols { get; set; }
     }
 }

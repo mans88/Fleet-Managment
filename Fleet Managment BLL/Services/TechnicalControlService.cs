@@ -2,6 +2,7 @@
 using Fleet_Managment_BLL.Extension;
 using Fleet_Managment_BLL.Interfaces;
 using Fleet_Managment_DAL.Interfaces;
+using FleetManagment.Shared.TransfertObject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,25 +19,25 @@ namespace Fleet_Managment_BLL.Services
             this.unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        public List<TechnicalControl> GetAll() => unitOfWork.TechnicalControlRepository.GetAll().Select(c => c.ToDomain()).ToList();
+        public List<TechnicalControlTO> GetAll() => unitOfWork.TechnicalControlRepository.GetAll().Select(c => c.ToDomain().ToTransfertObject()).ToList();
 
-        public TechnicalControl GetById(int id) => unitOfWork.TechnicalControlRepository.GetByID(id).ToDomain();
+        public TechnicalControlTO GetById(int id) => unitOfWork.TechnicalControlRepository.GetByID(id).ToDomain().ToTransfertObject();
 
-        public TechnicalControl Insert(TechnicalControl technicalControl)
+        public TechnicalControlTO Insert(TechnicalControlTO technicalControl)
         {
             if (technicalControl is null)
                 throw new ArgumentNullException(nameof(technicalControl));
 
-            return unitOfWork.TechnicalControlRepository.Insert(technicalControl.ToTransfertObject()).ToDomain();
+            return unitOfWork.TechnicalControlRepository.Insert(technicalControl.ToDomain().ToTransfertObject());
         }
 
         public bool RemoveById(int id) => unitOfWork.TechnicalControlRepository.RemoveById(id);
 
-        public TechnicalControl Update(TechnicalControl technicalControl)
+        public TechnicalControlTO Update(TechnicalControlTO technicalControl)
         {
             if (technicalControl is null)
                 throw new ArgumentNullException(nameof(technicalControl));
-            return unitOfWork.TechnicalControlRepository.Update(technicalControl.ToTransfertObject()).ToDomain();
+            return unitOfWork.TechnicalControlRepository.Update(technicalControl.ToDomain().ToTransfertObject());
         }
     }
 }

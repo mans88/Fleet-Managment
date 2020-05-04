@@ -25,7 +25,7 @@ namespace FleetManagment.BLL.Test.TechnicalControl_Tests
         public void AddTechnicalControl_CorrectTechnicalControl_ReturnTechnicalControlNotNull()
         {
             //Arrange
-            var ct = new TechnicalControl
+            var ct = new TechnicalControlTO
             {
                 Comment = "blabla",
                 StartDate = DateTime.Now,
@@ -34,9 +34,9 @@ namespace FleetManagment.BLL.Test.TechnicalControl_Tests
 
             var mockUnitOfWork = new Mock<IUnitOfWork>();
             mockUnitOfWork.Setup(u => u.TechnicalControlRepository.Insert(It.IsAny<TechnicalControlTO>()))
-                .Returns(ct.ToTransfertObject());
+                .Returns(ct.ToDomain().ToTransfertObject());
             var mockTechnicalControl = new Mock<ITechnicalControl>();
-            mockTechnicalControl.Setup(x => x.Insert(It.IsAny<TechnicalControl>()))
+            mockTechnicalControl.Setup(x => x.Insert(It.IsAny<TechnicalControlTO>()))
                 .Returns(ct);
 
             //Act

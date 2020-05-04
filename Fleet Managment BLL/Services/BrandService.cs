@@ -2,6 +2,7 @@
 using Fleet_Managment_BLL.Extension;
 using Fleet_Managment_BLL.Interfaces;
 using Fleet_Managment_DAL.Interfaces;
+using FleetManagment.Shared.TransfertObject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,25 +19,25 @@ namespace Fleet_Managment_BLL.Services
             this.unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        public List<Brand> GetAll() => unitOfWork.BrandRepository.GetAll().Select(c => c.ToDomain()).ToList();
+        public List<BrandTO> GetAll() => unitOfWork.BrandRepository.GetAll().Select(c => c.ToDomain().ToTransfertObject()).ToList();
 
-        public Brand GetById(int id) => unitOfWork.BrandRepository.GetByID(id).ToDomain();
+        public BrandTO GetById(int id) => unitOfWork.BrandRepository.GetByID(id).ToDomain().ToTransfertObject();
 
-        public Brand Insert(Brand brand)
+        public BrandTO Insert(BrandTO brand)
         {
             if (brand is null)
                 throw new ArgumentNullException(nameof(brand));
 
-            return unitOfWork.BrandRepository.Insert(brand.ToTransfertObject()).ToDomain();
+            return unitOfWork.BrandRepository.Insert(brand.ToDomain().ToTransfertObject());
         }
 
         public bool RemoveById(int id) => unitOfWork.BrandRepository.RemoveById(id);
 
-        public Brand Update(Brand brand)
+        public BrandTO Update(BrandTO brand)
         {
             if (brand is null)
                 throw new ArgumentNullException(nameof(brand));
-            return unitOfWork.BrandRepository.Update(brand.ToTransfertObject()).ToDomain();
+            return unitOfWork.BrandRepository.Update(brand.ToDomain().ToTransfertObject());
         }
     }
 }

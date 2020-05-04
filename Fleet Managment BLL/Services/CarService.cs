@@ -2,6 +2,7 @@
 using Fleet_Managment_BLL.Extension;
 using Fleet_Managment_BLL.Interfaces;
 using Fleet_Managment_DAL.Interfaces;
+using FleetManagment.Shared.TransfertObject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,26 +18,26 @@ namespace Fleet_Managment_BLL.Services
             this.unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        public List<Car> GetAll() => unitOfWork.CarRepository.GetAll().Select(c => c.ToDomain()).ToList();
+        public List<CarTO> GetAll() => unitOfWork.CarRepository.GetAll().Select(c => c.ToDomain().ToTransfertObject()).ToList();
 
-        public Car GetById(int id) => unitOfWork.CarRepository.GetByID(id).ToDomain();
+        public CarTO GetById(int id) => unitOfWork.CarRepository.GetByID(id).ToDomain().ToTransfertObject();
 
-        public Car Insert(Car car)
+        public CarTO Insert(CarTO car)
         {
             if (car is null)
                 throw new ArgumentNullException(nameof(car));
-            var carAdded = unitOfWork.CarRepository.Insert(car.ToTransfertObject()).ToDomain();
+            var carAdded = unitOfWork.CarRepository.Insert(car.ToDomain().ToTransfertObject());
             unitOfWork.SaveChanges();
             return carAdded; ;
         }
 
         public bool RemoveById(int id) => unitOfWork.CarRepository.RemoveById(id);
 
-        public Car Update(Car car)
+        public CarTO Update(CarTO car)
         {
             if (car is null)
                 throw new ArgumentNullException(nameof(car));
-            return unitOfWork.CarRepository.Update(car.ToTransfertObject()).ToDomain();
+            return unitOfWork.CarRepository.Update(car.ToDomain().ToTransfertObject());
         }
     }
 }
