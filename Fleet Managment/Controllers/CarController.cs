@@ -59,9 +59,9 @@ namespace Fleet_Managment.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete(CarTO car)
+        public IActionResult Delete(int id)
         {
-            carService.RemoveById(car.Id);
+            carService.RemoveById(id);
             return RedirectToAction("CarAvailable");
         }
     }
