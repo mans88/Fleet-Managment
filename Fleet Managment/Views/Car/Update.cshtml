@@ -1,91 +1,75 @@
-﻿@model CarAddedViewModel
+﻿@model Fleet_Managment.Models.CarAddedViewModel
 
 @{
-    ViewData["Title"] = "CreateCar";
+    ViewData["Title"] = "Update";
 }
 
-<h1>Creat a new car</h1>
+<h1>Update @Model.Numberplate</h1>
 
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateCar">
+        <form asp-action="Update">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
             <div class="form-group">
                 <label asp-for="Numberplate" class="control-label"></label>
-                <input asp-for="Numberplate" value="1-lds-488" class="form-control" />
+                <input asp-for="Numberplate" class="form-control" />
                 <span asp-validation-for="Numberplate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Year" class="control-label"></label>
-                <input asp-for="Year" asp-format="{0:dd/MM/yyyy}" type="date" typevalue="@DateTime.Now" class="form-control" />
+                <input asp-for="Year" type="date" class="form-control" />
                 <span asp-validation-for="Year" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Chassis" class="control-label"></label>
-                <input asp-for="Chassis" value="ljzlzd-e5fe-e5f49ez" class="form-control" />
+                <input asp-for="Chassis" class="form-control" />
                 <span asp-validation-for="Chassis" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="VehicleStatus" class="control-label"></label>
-                <input asp-for="VehicleStatus" value="Bon" class="form-control" />
+                <input asp-for="VehicleStatus" class="form-control" />
                 <span asp-validation-for="VehicleStatus" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="StartDateContract" class="control-label"></label>
-                <input asp-for="StartDateContract" asp-format="{0:dd/MM/yyyy}" type="date" value="@DateTime.Now.Date" class="form-control" />
+                <input asp-for="StartDateContract" type="date" class="form-control" />
                 <span asp-validation-for="StartDateContract" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EndDateContract" class="control-label"></label>
-                <input asp-for="EndDateContract" type="date" value="@DateTime.Now.AddYears(1)" class="form-control" />
+                <input asp-for="EndDateContract" type="date" class="form-control" />
                 <span asp-validation-for="EndDateContract" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Km" class="control-label"></label>
-                <input asp-for="Km" value="123456" class="form-control" />
+                <input asp-for="Km" class="form-control" />
                 <span asp-validation-for="Km" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="idBrand"> Brand </label>
-                <select asp-for="idBrand" class="">
-                    @foreach (var brand in @ViewBag.Brands)
-                    {
-                        <option value="@brand.Id">@brand.Name</option>
-                    }
-                </select>
+                <label asp-for="idBrand" class="control-label"></label>
+                <input asp-for="idBrand" class="form-control" />
                 <span asp-validation-for="idBrand" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="idModel"> Model </label>
-                <select asp-for="idModel" class="">
-                    @foreach (var modelCar in @ViewBag.Models)
-                    {
-                        <option value="@modelCar.Id">@modelCar.Name</option>
-                    }
-                </select>
+                <label asp-for="idModel" class="control-label"></label>
+                <input asp-for="idModel" class="form-control" />
                 <span asp-validation-for="idModel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <div class="form-group">
-                    <label asp-for="idFuel"> Fuel </label>
-                    <select asp-for="idFuel" class="">
-                        @foreach (var fuel in @ViewBag.Fuels)
-                        {
-                            <option value="@fuel.Id">@fuel.Name</option>
-                        }
-                    </select>
-                    <span asp-validation-for="idFuel" class="text-danger"></span>
-                </div>
-                <input type="submit" value="CreateCar" class="btn btn-primary" />
+                <label asp-for="idFuel" class="control-label"></label>
+                <input asp-for="idFuel" class="form-control" />
+                <span asp-validation-for="idFuel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="CarAvailable">Retour</a>
+    <a asp-action="CarAvailable">Back to List</a>
 </div>
 
 @section Scripts {

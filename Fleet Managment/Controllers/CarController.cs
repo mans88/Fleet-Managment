@@ -4,6 +4,9 @@ using FleetManagment.Shared.TransfertObject;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Fleet_Managment.Controllers
 {
@@ -71,6 +74,27 @@ namespace Fleet_Managment.Controllers
         {
             var result = carService.RemoveById(id);
             return RedirectToAction("CarAvailable");
+        }
+
+        public IActionResult Update(int id)
+        {
+            var car = carService.GetById(id);
+
+            CarAddedViewModel carModel = new CarAddedViewModel();
+
+            carModel.Chassis = car.Chassis;
+            carModel.Numberplate = car.Numberplate;
+            carModel.VehicleStatus = car.VehicleStatus;
+            carModel.StartDateContract = car.StartDateContract;
+            carModel.Year = car.Year;
+            carModel.EndDateContract = car.EndDateContract;
+            carModel.Km = car.Km;
+            //carModel.idBrand = car.Brand.Id;
+            //carModel.idFuel = 1;
+            //carModel.idModel = 1;
+            // idModel = car.Brand.Models.Select(m => m.Id).FirstOrDefault(),
+
+            return View(carModel);
         }
     }
 }
