@@ -12,12 +12,16 @@ namespace Fleet_Managment.Controllers
         // private readonly IUnitOfWork unitOfWork;
         private ICarService carService;
 
+        private IModelService modelService;
         private IBrandService brandService;
+        private IFuelService fuelService;
 
-        public CarController(ICarService carService, IBrandService brandService)
+        public CarController(ICarService carService, IBrandService brandService, IModelService modelService, IFuelService fuelService)
         {
             this.carService = carService ?? throw new ArgumentNullException(nameof(carService));
             this.brandService = brandService ?? throw new ArgumentNullException(nameof(carService));
+            this.modelService = modelService ?? throw new ArgumentNullException(nameof(modelService));
+            this.fuelService = fuelService ?? throw new ArgumentNullException(nameof(fuelService));
         }
 
         public IActionResult Index()
@@ -35,7 +39,12 @@ namespace Fleet_Managment.Controllers
         public IActionResult CreateCar()
         {
             List<BrandTO> brands = brandService.GetAll();
+            List<ModelTO> models = modelService.GetAll();
+            List<FuelTO> fuels = fuelService.GetAll();
             ViewBag.Brands = brands;
+            ViewBag.Models = models;
+            ViewBag.Fuels = fuels;
+
             return View();
         }
 
@@ -58,7 +67,6 @@ namespace Fleet_Managment.Controllers
             return RedirectToAction("CarAvailable");
         }
 
-        //[HttpDelete]
         public IActionResult Delete(int id)
         {
             var result = carService.RemoveById(id);

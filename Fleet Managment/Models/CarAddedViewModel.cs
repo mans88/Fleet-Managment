@@ -12,5 +12,7 @@ namespace Fleet_Managment.Models
         public DateTime EndDateContract { get; set; }
         public int Km { get; set; }
         public int idBrand { get; set; }
+        public int idModel { get; set; }
+        public int idFuel { get; set; }
     }
 }

@@ -14,6 +14,7 @@ namespace Fleet_Managment.Models
         public DateTime EndDateContract { get; set; }
         public int Km { get; set; }
         public List<BrandTO> Brands { get; set; }
-        //public int idBrand { get; set; }
+        public List<ModelTO> Models { get; set; }
+        public List<FuelTO> Fuels { get; set; }
     }
 }

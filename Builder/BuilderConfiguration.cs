@@ -16,6 +16,8 @@ namespace Builder
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICarService, CarService>();
             services.AddScoped<IBrandService, BrandService>();
+            services.AddScoped<IModelService, ModelService>();
+            services.AddScoped<IFuelService, FuelService>();
         }
     }
 }

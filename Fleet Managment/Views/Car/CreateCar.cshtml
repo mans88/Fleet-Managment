@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Year" class="control-label"></label>
-                <input asp-for="Year" asp-format="{0:dd/MM/yyyy}" value="@DateTime.Now" class="form-control" />
+                <input asp-for="Year" asp-format="{0:dd/MM/yyyy}" type="date" typevalue="@DateTime.Now" class="form-control" />
                 <span asp-validation-for="Year" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -35,12 +35,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="StartDateContract" class="control-label"></label>
-                <input asp-for="StartDateContract" asp-format="{0:dd/MM/yyyy}" value="@DateTime.Now.Date" class="form-control" />
+                <input asp-for="StartDateContract" asp-format="{0:dd/MM/yyyy}" type="date" value="@DateTime.Now.Date" class="form-control" />
                 <span asp-validation-for="StartDateContract" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EndDateContract" class="control-label"></label>
-                <input asp-for="EndDateContract" value="@DateTime.Now" class="form-control" />
+                <input asp-for="EndDateContract" type="date" value="@DateTime.Now.AddYears(1)" class="form-control" />
                 <span asp-validation-for="EndDateContract" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,7 +49,7 @@
                 <span asp-validation-for="Km" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="idBrand"></label>
+                <label asp-for="idBrand"> Brand </label>
                 <select asp-for="idBrand" class="">
                     @foreach (var brand in @ViewBag.Brands)
                     {
@@ -59,6 +59,26 @@
                 <span asp-validation-for="idBrand" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="idModel"> Model </label>
+                <select asp-for="idModel" class="accordion">
+                    @foreach (var modelCar in @ViewBag.Models)
+                    {
+                        <option value="@modelCar.Id">@modelCar.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="idModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="idFuel"> Fuel </label>
+                    <select asp-for="idFuel" class="">
+                        @foreach (var fuel in @ViewBag.Fuels)
+                        {
+                            <option value="@fuel.Id">@fuel.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="idFuel" class="text-danger"></span>
+                </div>
                 <input type="submit" value="CreateCar" class="btn btn-primary" />
             </div>
         </form>
