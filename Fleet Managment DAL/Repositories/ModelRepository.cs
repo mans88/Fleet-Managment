@@ -35,7 +35,14 @@ namespace Fleet_Managment_DAL.Repositories
         {
             if (model is null) throw new ArgumentNullException(nameof(model));
 
-            return context.Models.Add(model.ToEntity()).Entity.ToTransfertObject();
+            var brand = context.Brands.Find(model.Brand.Id);
+            //var fuels = context.Fuels.Select(c => c.Id == model.Fules.);
+
+            var modelEntity = model.ToEntity();
+
+            modelEntity.Brand = brand;
+
+            return context.Models.Add(modelEntity).Entity.ToTransfertObject();
         }
 
         public bool Remove(ModelTO model)

@@ -7,6 +7,6 @@ namespace FleetManagment.Shared.TransfertObject
         public int Id { get; set; }
         public string Name { get; set; }
         public BrandTO Brand { get; set; }
-        public ICollection<FuelTO> Fules { get; set; }
+        public ICollection<CarTO> Cars { get; set; }
     }
 }

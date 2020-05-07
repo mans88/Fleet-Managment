@@ -7,7 +7,6 @@ namespace Fleet_Managment_DAL.Interfaces
         IModelRepository ModelRepository { get; }
         IBrandRepository BrandRepository { get; }
         ICarRepository CarRepository { get; }
-        IFuelRepository FuelRepository { get; }
         IInsuranceRepository InsuranceRepository { get; }
         ITechnicalControlRepository TechnicalControlRepository { get; }
 

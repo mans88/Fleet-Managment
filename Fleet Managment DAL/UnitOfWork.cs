@@ -24,8 +24,6 @@ namespace Fleet_Managment_DAL
 
         public ITechnicalControlRepository TechnicalControlRepository => new TechnicalControlRepository(context);
 
-        public IFuelRepository FuelRepository => new FuelRepository(context);
-
         public int SaveChanges()
         {
             return context.SaveChanges();

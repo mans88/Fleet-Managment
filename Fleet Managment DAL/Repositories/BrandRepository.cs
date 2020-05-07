@@ -27,20 +27,27 @@ namespace Fleet_Managment_DAL.Repositories
 
         public BrandTO GetByID(int id)
         => context.Brands
+            .Include(m => m.Models)
             //.AsNoTracking()
             .FirstOrDefault(x => x.Id == id)
             .ToTransfertObject();
 
-        public BrandTO Insert(BrandTO entity)
+        public BrandTO Insert(BrandTO brand)
         {
-            if (entity is null) throw new ArgumentNullException(nameof(entity));
-            return context.Brands.Add(entity.ToEntity()).Entity.ToTransfertObject();
+            if (brand is null) throw new ArgumentNullException(nameof(brand));
+
+            var models = context.Models.Select(c => c.Brand.Id == brand.Id);
+            var brandEntity = brand.ToEntity();
+
+            brandEntity.Models = (List<Model>)models;
+
+            return context.Brands.Add(brandEntity).Entity.ToTransfertObject();
         }
 
-        public bool Remove(BrandTO entity)
+        public bool Remove(BrandTO brand)
         {
-            if (entity is null) throw new ArgumentException(nameof(entity));
-            return RemoveById(entity.Id);
+            if (brand is null) throw new ArgumentException(nameof(brand));
+            return RemoveById(brand.Id);
         }
 
         public bool RemoveById(int id)
@@ -56,14 +63,13 @@ namespace Fleet_Managment_DAL.Repositories
             return removed.State == EntityState.Deleted;
         }
 
-        public BrandTO Update(BrandTO entity)
+        public BrandTO Update(BrandTO brand)
         {
-            if (entity is null) throw new ArgumentException(nameof(entity));
+            if (brand is null) throw new ArgumentException(nameof(brand));
 
-            var modified = context.Brands.FirstOrDefault(b => b.Id == entity.Id);
-            modified.Cars = entity.Cars?.Select(c => c.ToEntity()).ToList();
-            modified.Models = entity.Models?.Select(c => c.ToEntity()).ToList();
-            modified.Name = entity.Name;
+            var modified = context.Brands.FirstOrDefault(b => b.Id == brand.Id);
+            modified.Models = brand.Models?.Select(c => c.ToEntity()).ToList();
+            modified.Name = brand.Name;
             return modified.ToTransfertObject();
         }
     }

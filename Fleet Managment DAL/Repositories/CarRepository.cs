@@ -19,26 +19,30 @@ namespace Fleet_Managment_DAL.Repositories
         }
 
         public IEnumerable<CarTO> GetAll()
-        => context.Cars
-            //.Include(x => x.Brand)
-            //.ThenInclude(x => x.Models)
-            .AsNoTracking()
+        {
+            var s = context.Cars
+            .Include(m => m.Model)
+            .ThenInclude(b => b.Brand)
             .Select(x => x.ToTransfertObject());
+
+            return s;
+        }
 
         public CarTO GetByID(int id)
         => context.Cars
-            //.Include(x => x.Brand)
-            //.AsNoTracking()
-            .FirstOrDefault(x => x.Id == id).ToTransfertObject();
+            .Include(c => c.Model)
+            .ThenInclude(m => m.Brand)
+            .FirstOrDefault(x => x.Id == id)
+            .ToTransfertObject();
 
         public CarTO Insert(CarTO car)
         {
             if (car is null) throw new ArgumentNullException(nameof(car));
-            var brand = context.Brands.Find(car.Brand.Id);
+            var model = context.Models.Find(car.Model.Id);
             var entityCar = car.ToEntity();
-            entityCar.Brand = brand;
+            entityCar.Model = model;
+
             return context.Cars.Add(entityCar).Entity.ToTransfertObject();
-            //return context.Cars.Add(car.ToEntity()).Entity.ToTransfertObject();
         }
 
         public bool Remove(CarTO entity)
@@ -57,7 +61,7 @@ namespace Fleet_Managment_DAL.Repositories
         {
             if (entity is null) throw new ArgumentException(nameof(entity));
             var updated = context.Cars.FirstOrDefault(x => x.Id == entity.Id);
-            updated.Brand = entity.Brand?.ToEntity();
+            updated.Model = entity.Model?.ToEntity();
             updated.Chassis = entity.Chassis;
             updated.EndDateContract = entity.EndDateContract;
             updated.Insurances = entity.Insurances?.Select(x => x.ToEntity()).ToList();

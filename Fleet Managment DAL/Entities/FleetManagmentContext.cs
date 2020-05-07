@@ -15,9 +15,7 @@ namespace Fleet_Managment_DAL.Entities
 
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Car> Cars { get; set; }
-        public virtual DbSet<Fuel> Fuels { get; set; }
         public virtual DbSet<Insurance> Insurances { get; set; }
-        public virtual DbSet<ModelFuel> ModelFuels { get; set; }
         public virtual DbSet<Model> Models { get; set; }
         public virtual DbSet<TechnicalControl> TechnicalControls { get; set; }
 
@@ -33,15 +31,15 @@ namespace Fleet_Managment_DAL.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ModelFuel>().HasKey(sc => new { sc.ModelId, sc.FuelId });
-            modelBuilder.Entity<ModelFuel>()
-               .HasOne(mf => mf.Model)
-               .WithMany(m => m.ModelFuels)
-               .HasForeignKey(m => m.ModelId);
-            modelBuilder.Entity<ModelFuel>()
-                .HasOne(mf => mf.Fuel)
-                .WithMany(f => f.ModelFuels)
-                .HasForeignKey(f => f.FuelId);
+            // modelBuilder.Entity<ModelFuel>().HasKey(sc => new { sc.ModelId, sc.FuelId });
+            //modelBuilder.Entity<ModelFuel>()
+            //   .HasOne(mf => mf.Model)
+            //   .WithMany(m => m.ModelFuels)
+            //   .HasForeignKey(m => m.ModelId);
+            //modelBuilder.Entity<ModelFuel>()
+            //    .HasOne(mf => mf.Fuel)
+            //    .WithMany(f => f.ModelFuels)
+            //    .HasForeignKey(f => f.FuelId);
         }
     }
 }

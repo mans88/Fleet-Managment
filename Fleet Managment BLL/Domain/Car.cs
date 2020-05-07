@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FleetManagment.Shared.Enumeration;
+using System;
 using System.Collections.Generic;
 
 namespace Fleet_Managment_BLL.Domain
@@ -13,7 +14,8 @@ namespace Fleet_Managment_BLL.Domain
         public DateTime StartDateContract { get; set; }
         public DateTime EndDateContract { get; set; }
         public int Km { get; set; }
-        public Brand Brand { get; set; }
+        public Model Model { get; set; }
+        public Fuel Fuel { get; set; }
         public ICollection<Insurance> Insurances { get; set; }
         public ICollection<TechnicalControl> Technicalcontrols { get; set; }
     }

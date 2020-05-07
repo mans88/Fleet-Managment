@@ -1,4 +1,5 @@
-﻿using FleetManagment.Shared.TransfertObject;
+﻿using FleetManagment.Shared.Enumeration;
+using FleetManagment.Shared.TransfertObject;
 using System;
 using System.Collections.Generic;
 
@@ -15,6 +16,6 @@ namespace Fleet_Managment.Models
         public int Km { get; set; }
         public List<BrandTO> Brands { get; set; }
         public List<ModelTO> Models { get; set; }
-        public List<FuelTO> Fuels { get; set; }
+        public Fuel Fuel { get; set; }
     }
 }

@@ -2,6 +2,9 @@
 using Fleet_Managment_BLL.Interfaces;
 using FleetManagment.Shared.TransfertObject;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.FlowAnalysis;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.View;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -17,14 +20,12 @@ namespace Fleet_Managment.Controllers
 
         private IModelService modelService;
         private IBrandService brandService;
-        private IFuelService fuelService;
 
-        public CarController(ICarService carService, IBrandService brandService, IModelService modelService, IFuelService fuelService)
+        public CarController(ICarService carService, IBrandService brandService, IModelService modelService)
         {
             this.carService = carService ?? throw new ArgumentNullException(nameof(carService));
             this.brandService = brandService ?? throw new ArgumentNullException(nameof(carService));
             this.modelService = modelService ?? throw new ArgumentNullException(nameof(modelService));
-            this.fuelService = fuelService ?? throw new ArgumentNullException(nameof(fuelService));
         }
 
         public IActionResult Index()
@@ -35,7 +36,28 @@ namespace Fleet_Managment.Controllers
         [HttpGet]
         public IActionResult CarAvailable()
         {
-            return View(carService.GetAll());
+            var allCars = carService.GetAll();
+            List<CarListingViewModel> cars = new List<CarListingViewModel>();
+
+            foreach (var item in allCars)
+            {
+                //var models = modelService.GetById(brand.Models.Select(x=>x.Id == brand.));
+                CarListingViewModel carModel = new CarListingViewModel
+                {
+                    IdCar = item.Id,
+                    Chassis = item.Chassis,
+                    Numberplate = item.Numberplate,
+                    VehicleStatus = item.VehicleStatus,
+                    StartDateContract = item.StartDateContract,
+                    Year = item.Year,
+                    EndDateContract = item.EndDateContract,
+                    Km = item.Km,
+                    Model = item.Model,
+                    Fuel = item.Fuel
+                };
+                cars.Add(carModel);
+            }
+            return View(cars);
         }
 
         [HttpGet]
@@ -43,10 +65,8 @@ namespace Fleet_Managment.Controllers
         {
             List<BrandTO> brands = brandService.GetAll();
             List<ModelTO> models = modelService.GetAll();
-            List<FuelTO> fuels = fuelService.GetAll();
             ViewBag.Brands = brands;
             ViewBag.Models = models;
-            ViewBag.Fuels = fuels;
 
             return View();
         }
@@ -56,7 +76,7 @@ namespace Fleet_Managment.Controllers
         {
             CarTO car = new CarTO
             {
-                Brand = brandService.GetById(carModel.idBrand),
+                Model = modelService.GetById(carModel.IdModel),
                 Chassis = carModel.Chassis,
                 Numberplate = carModel.Numberplate,
                 VehicleStatus = carModel.VehicleStatus,
@@ -76,25 +96,33 @@ namespace Fleet_Managment.Controllers
             return RedirectToAction("CarAvailable");
         }
 
+        [HttpGet]
         public IActionResult Update(int id)
         {
-            var car = carService.GetById(id);
+            CarTO car = new CarTO();
+            car = carService.GetById(id);
 
-            CarAddedViewModel carModel = new CarAddedViewModel();
+            CarAddedViewModel carAdded = new CarAddedViewModel();
 
-            carModel.Chassis = car.Chassis;
-            carModel.Numberplate = car.Numberplate;
-            carModel.VehicleStatus = car.VehicleStatus;
-            carModel.StartDateContract = car.StartDateContract;
-            carModel.Year = car.Year;
-            carModel.EndDateContract = car.EndDateContract;
-            carModel.Km = car.Km;
-            //carModel.idBrand = car.Brand.Id;
-            //carModel.idFuel = 1;
-            //carModel.idModel = 1;
-            // idModel = car.Brand.Models.Select(m => m.Id).FirstOrDefault(),
+            carAdded.Chassis = car.Chassis;
+            carAdded.Numberplate = car.Numberplate;
+            carAdded.VehicleStatus = car.VehicleStatus;
+            carAdded.StartDateContract = car.StartDateContract;
+            carAdded.Year = car.Year;
+            carAdded.EndDateContract = car.EndDateContract;
+            carAdded.Km = car.Km;
+            //carAdded.IdBrand = car.Brand.Id;
 
-            return View(carModel);
+            List<BrandTO> brands = brandService.GetAll();
+            List<ModelTO> models = modelService.GetAll();
+            ViewBag.Brands = brands;
+            ViewBag.Models = models;
+            ViewBag.CarModel = carAdded;
+
+            //carService.Update(car);
+            //return RedirectToAction("CarAvailable");
+
+            return View();
         }
     }
 }

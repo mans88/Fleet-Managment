@@ -19,7 +19,7 @@ namespace Fleet_Managment_BLL.Extension
                 Id = model.Id,
                 Name = model.Name,
                 Brand = model.Brand?.ToTransfertObject(),
-                Fules = model.Fuels?.Select(x => x.ToTransfertObject()).ToList()
+                //Cars = model.Cars.Select(c => c.ToTransfertObject()).ToList()
             };
         }
 
@@ -32,7 +32,7 @@ namespace Fleet_Managment_BLL.Extension
                 Id = model.Id,
                 Name = model.Name,
                 Brand = model.Brand?.ToDomain(),
-                Fuels = model.Fules?.Select(x => x.ToDomain()).ToList()
+                Cars = model.Cars?.Select(c => c.ToDomain()).ToList(),
             };
         }
     }

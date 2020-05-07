@@ -27,14 +27,12 @@ namespace FleetManagment.DAL.Test.Brand_Repository
 
             BrandTO brand = new BrandTO
             {
-                Cars = new List<CarTO>(),
                 Models = new List<ModelTO>(),
                 Name = "VW",
             };
 
             BrandTO brand2 = new BrandTO
             {
-                Cars = new List<CarTO>(),
                 Models = new List<ModelTO>(),
                 Name = "Audi",
             };
@@ -75,14 +73,12 @@ namespace FleetManagment.DAL.Test.Brand_Repository
 
             BrandTO brand = new BrandTO
             {
-                Cars = new List<CarTO>(),
                 Models = new List<ModelTO>(),
                 Name = "VW",
             };
 
             BrandTO brand2 = new BrandTO
             {
-                Cars = new List<CarTO>(),
                 Models = new List<ModelTO>(),
                 Name = "Audi",
             };

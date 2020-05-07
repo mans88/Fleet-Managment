@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FleetManagment.Shared.Enumeration;
+using System;
 using System.Collections.Generic;
 
 namespace FleetManagment.Shared.TransfertObject
@@ -13,7 +14,8 @@ namespace FleetManagment.Shared.TransfertObject
         public DateTime StartDateContract { get; set; }
         public DateTime EndDateContract { get; set; }
         public int Km { get; set; }
-        public BrandTO Brand { get; set; }
+        public ModelTO Model { get; set; }
+        public Fuel Fuel { get; set; }
         public ICollection<InsuranceTO> Insurances { get; set; }
         public ICollection<TechnicalControlTO> Technicalcontrols { get; set; }
     }
