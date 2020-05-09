@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FleetManagment.Shared.Enumeration;
+using System;
 
 namespace Fleet_Managment.Models
 {
@@ -14,6 +15,6 @@ namespace Fleet_Managment.Models
         public int Km { get; set; }
         public int IdBrand { get; set; }
         public int IdModel { get; set; }
-        public int IdFuel { get; set; }
+        public Fuel Fuel { get; set; }
     }
 }

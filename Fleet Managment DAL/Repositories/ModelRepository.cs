@@ -21,15 +21,16 @@ namespace Fleet_Managment_DAL.Repositories
 
         public ModelTO GetByID(int modelId)
             => context.Models
-            //.Include(x => x.ModelFuels)
-            //.ThenInclude(x => x.Fuel)
-            .AsNoTracking().FirstOrDefault(f => f.Id == modelId).ToTransfertObject();
+            .Include(b => b.Brand)
+            .FirstOrDefault(m => m.Id == modelId)
+            .ToTransfertObject();
 
         public IEnumerable<ModelTO> GetAll()
         => context.Models
-            //.Include(x => x.ModelFuels)
-            //.ThenInclude(x => x.Fuel)
-            .AsNoTracking().Select(f => f.ToTransfertObject()).ToList();
+            .Include(b => b.Brand)
+            // .AsNoTracking()
+            .Select(f => f.ToTransfertObject())
+            .ToList();
 
         public ModelTO Insert(ModelTO model)
         {

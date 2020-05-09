@@ -30,7 +30,7 @@ namespace Fleet_Managment_DAL.Extensions
                 Id = model.Id,
                 Name = model.Name,
                 Brand = model.Brand?.ToEntity(),
-                Cars = model.Cars.Select(c => c.ToEntity()).ToList(),
+                Cars = model.Cars?.Select(c => c.ToEntity()).ToList(),
             };
         }
     }

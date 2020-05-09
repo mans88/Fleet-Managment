@@ -1,5 +1,7 @@
 ﻿using Fleet_Managment.Models;
+using Fleet_Managment_BLL.Domain;
 using Fleet_Managment_BLL.Interfaces;
+using FleetManagment.Shared.Enumeration;
 using FleetManagment.Shared.TransfertObject;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.FlowAnalysis;
@@ -65,6 +67,7 @@ namespace Fleet_Managment.Controllers
         {
             List<BrandTO> brands = brandService.GetAll();
             List<ModelTO> models = modelService.GetAll();
+
             ViewBag.Brands = brands;
             ViewBag.Models = models;
 
@@ -84,6 +87,7 @@ namespace Fleet_Managment.Controllers
                 Year = carModel.Year,
                 EndDateContract = carModel.EndDateContract,
                 Km = carModel.Km,
+                Fuel = carModel.Fuel,
             };
 
             carService.Insert(car);
@@ -111,7 +115,8 @@ namespace Fleet_Managment.Controllers
             carAdded.Year = car.Year;
             carAdded.EndDateContract = car.EndDateContract;
             carAdded.Km = car.Km;
-            //carAdded.IdBrand = car.Brand.Id;
+            carAdded.IdBrand = car.Model.Brand.Id;
+            carAdded.Fuel = car.Fuel;
 
             List<BrandTO> brands = brandService.GetAll();
             List<ModelTO> models = modelService.GetAll();

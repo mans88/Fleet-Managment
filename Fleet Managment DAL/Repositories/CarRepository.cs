@@ -30,8 +30,8 @@ namespace Fleet_Managment_DAL.Repositories
 
         public CarTO GetByID(int id)
         => context.Cars
-            .Include(c => c.Model)
-            .ThenInclude(m => m.Brand)
+            .Include(m => m.Model)
+            .ThenInclude(b => b.Brand)
             .FirstOrDefault(x => x.Id == id)
             .ToTransfertObject();
 

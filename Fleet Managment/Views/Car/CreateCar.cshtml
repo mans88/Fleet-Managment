@@ -69,14 +69,11 @@
             </div>
             <div class="form-group">
                 <div class="form-group">
-                    <label asp-for="IdFuel"> Fuel </label>
-                    <select asp-for="IdFuel" class="control-label">
-                        @foreach (var fuel in @ViewBag.Fuels)
-                        {
-                            <option value="@fuel.Id">@fuel.Name</option>
-                        }
+                    <label asp-for="Fuel"> Fuel </label>
+                    <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FleetManagment.Shared.Enumeration.Fuel>()" class="control-label">
+                        <option selected="selected" value="">Please select</option>
                     </select>
-                    <span asp-validation-for="IdFuel" class="text-danger"></span>
+                    <span asp-validation-for="Fuel" class="text-danger"></span>
                 </div>
                 <input type="submit" value="CreateCar" class="btn btn-primary" />
             </div>
