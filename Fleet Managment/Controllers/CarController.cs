@@ -122,12 +122,11 @@ namespace Fleet_Managment.Controllers
             List<ModelTO> models = modelService.GetAll();
             ViewBag.Brands = brands;
             ViewBag.Models = models;
-            ViewBag.CarModel = carAdded;
 
             //carService.Update(car);
             //return RedirectToAction("CarAvailable");
 
-            return View();
+            return View(carAdded);
         }
     }
 }
