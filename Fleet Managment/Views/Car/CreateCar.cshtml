@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Year" class="control-label"></label>
-                <input asp-for="Year" type="date" value="@DateTime.Now.ToShortDateString()" class="form-control" />
+                <input asp-for="Year" type="date" class="form-control" />
                 <span asp-validation-for="Year" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -34,12 +34,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="StartDateContract" class="control-label"></label>
-                <input asp-for="StartDateContract" asp-format="{0:dd/MM/yyyy}" type="date" value="@DateTime.Now.Date" class="form-control" />
+                <input asp-for="StartDateContract" type="date" class="form-control" />
                 <span asp-validation-for="StartDateContract" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EndDateContract" class="control-label"></label>
-                <input asp-for="EndDateContract" type="date" value="@DateTime.Now.AddYears(1)" class="form-control" />
+                <input asp-for="EndDateContract" type="date" class="form-control" />
                 <span asp-validation-for="EndDateContract" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -48,7 +48,7 @@
                 <span asp-validation-for="Km" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdBrand"> Brand </label>
+                <label asp-for="IdBrand" class="control-label"> Brand </label>
                 <select asp-for="IdBrand" class="">
                     @foreach (var brand in @ViewBag.Brands)
                     {
@@ -58,8 +58,8 @@
                 <span asp-validation-for="IdBrand" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdModel"> Model </label>
-                <select asp-for="IdModel" class="">
+                <label asp-for="IdModel" class="control-label"> Model </label>
+                <select asp-for="IdModel" class="form-control">
                     @foreach (var modelCar in @ViewBag.Models)
                     {
                         <option value="@modelCar.Id">@modelCar.Name</option>
@@ -69,13 +69,13 @@
             </div>
             <div class="form-group">
                 <div class="form-group">
-                    <label asp-for="Fuel"> Fuel </label>
-                    <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FleetManagment.Shared.Enumeration.Fuel>()" class="control-label">
+                    <label asp-for="Fuel" class="control-label"> Fuel </label>
+                    <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FleetManagment.Shared.Enumeration.Fuel>()" class="form-control">
                         <option selected="selected" value="">Please select</option>
                     </select>
                     <span asp-validation-for="Fuel" class="text-danger"></span>
                 </div>
-                <input type="submit" value="CreateCar" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

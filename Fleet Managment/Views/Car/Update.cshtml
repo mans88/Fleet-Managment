@@ -6,55 +6,54 @@
 
 <h1>Update</h1>
 
-<h4>CarAddedViewModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Update">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<div class="form-group">
-                    <label asp-for="IdCar" class="control-label"></label>
-                    <input asp-for="IdCar" class="form-control" />
-                    <span asp-validation-for="IdCar" class="text-danger"></span>
-                </div>*@
+            <div class="form-group">
+                <label asp-for="IdCar" hidden class="control-label"></label>
+                <input asp-for="IdCar" hidden class="form-control" />
+                <span asp-validation-for="IdCar" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Numberplate" class="control-label"></label>
-                <input asp-for="Numberplate" value="@ViewBag.CarModel.Numberplate" class="form-control" />
+                <input asp-for="Numberplate" class="form-control" />
                 <span asp-validation-for="Numberplate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Year" class="control-label"></label>
-                <input asp-for="Year" type="date" value="@ViewBag.CarModel.Year" class="form-control" />
+                <input asp-for="Year" type="date" class="form-control" />
                 <span asp-validation-for="Year" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Chassis" class="control-label"></label>
-                <input asp-for="Chassis" value="@ViewBag.CarModel.Cassis" class="form-control" />
+                <input asp-for="Chassis" class="form-control" />
                 <span asp-validation-for="Chassis" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="VehicleStatus" class="control-label"></label>
-                <input asp-for="VehicleStatus" value="@ViewBag.CarModel.VehiculeStatus" class="form-control" />
+                <input asp-for="VehicleStatus" class="form-control" />
                 <span asp-validation-for="VehicleStatus" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="StartDateContract" class="control-label"></label>
-                <input asp-for="StartDateContract" type="date" value="@ViewBag.CarModel.StartDateContract" class="form-control" />
+                <input asp-for="StartDateContract" type="date" class="form-control" />
                 <span asp-validation-for="StartDateContract" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EndDateContract" class="control-label"></label>
-                <input asp-for="EndDateContract" type="date" value="@ViewBag.CarModel.EndDateContract" class="form-control" />
+                <input asp-for="EndDateContract" type="date" class="form-control" />
                 <span asp-validation-for="EndDateContract" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Km" class="control-label"></label>
-                <input asp-for="Km" value="@ViewBag.CarModel.Km" class="form-control" />
+                <input asp-for="Km" class="form-control" />
                 <span asp-validation-for="Km" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdBrand" class="control-label"> Brand </label>
-                <select asp-for="IdBrand" value="@ViewBag.CarModel.IdBrand" class="form-control">
+                <select asp-for="IdBrand" class="form-control">
                     @foreach (var brand in @ViewBag.Brands)
                     {
                         <option value="@brand.Id">@brand.Name</option>
@@ -63,24 +62,32 @@
                 <span asp-validation-for="IdBrand" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdModel" class="control-label"></label>
-                <input asp-for="IdModel" value="@ViewBag.CarModel.IdModel" class="form-control" />
+                <label asp-for="IdModel" class="control-label"> Model </label>
+                <select asp-for="IdModel" class="form-control">
+                    @foreach (var modelCar in @ViewBag.Models)
+                    {
+                        <option value="@modelCar.Id">@modelCar.Name</option>
+                    }
+                </select>
                 <span asp-validation-for="IdModel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Fuel" class="control-label"></label>
-                <input asp-for="Fuel" value="@ViewBag.CarModel.IdFuel" class="form-control" />
-                <span asp-validation-for="Fuel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+                <div class="form-group">
+                    <label asp-for="Fuel" class="control-label"> Fuel </label>
+                    <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FleetManagment.Shared.Enumeration.Fuel>()" class="form-control">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Fuel" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-primary" />
+                </div>
+                <div>
+                    <a asp-action="CarAvailable">Back to List</a>
+                </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="CarAvailable">Back to List</a>
 </div>
 
 @section Scripts {

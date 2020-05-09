@@ -107,7 +107,7 @@ namespace Fleet_Managment.Controllers
             car = carService.GetById(id);
 
             CarAddedViewModel carAdded = new CarAddedViewModel();
-
+            carAdded.IdCar = id;
             carAdded.Chassis = car.Chassis;
             carAdded.Numberplate = car.Numberplate;
             carAdded.VehicleStatus = car.VehicleStatus;
@@ -127,6 +127,27 @@ namespace Fleet_Managment.Controllers
             //return RedirectToAction("CarAvailable");
 
             return View(carAdded);
+        }
+
+        [HttpPost]
+        public IActionResult Update(CarAddedViewModel carModel)
+        {
+            CarTO car = new CarTO
+            {
+                Id = carModel.IdCar,
+                Model = modelService.GetById(carModel.IdModel),
+                Chassis = carModel.Chassis,
+                Numberplate = carModel.Numberplate,
+                VehicleStatus = carModel.VehicleStatus,
+                StartDateContract = carModel.StartDateContract,
+                Year = carModel.Year,
+                EndDateContract = carModel.EndDateContract,
+                Km = carModel.Km,
+                Fuel = carModel.Fuel,
+            };
+
+            carService.Update(car);
+            return RedirectToAction("CarAvailable");
         }
     }
 }

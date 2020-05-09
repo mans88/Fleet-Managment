@@ -57,20 +57,22 @@ namespace Fleet_Managment_DAL.Repositories
             return tracking.State == EntityState.Deleted;
         }
 
-        public CarTO Update(CarTO entity)
+        public CarTO Update(CarTO car)
         {
-            if (entity is null) throw new ArgumentException(nameof(entity));
-            var updated = context.Cars.FirstOrDefault(x => x.Id == entity.Id);
-            updated.Model = entity.Model?.ToEntity();
-            updated.Chassis = entity.Chassis;
-            updated.EndDateContract = entity.EndDateContract;
-            updated.Insurances = entity.Insurances?.Select(x => x.ToEntity()).ToList();
-            updated.Km = entity.Km;
-            updated.Numberplate = entity.Numberplate;
-            updated.StartDateContract = entity.StartDateContract;
-            updated.TechnicalControls = entity.Technicalcontrols?.Select(x => x.ToEntity()).ToList();
-            updated.VehicleStatus = entity.VehicleStatus;
-            updated.Year = entity.Year;
+            if (car is null) throw new ArgumentException(nameof(car));
+            var updated = context.Cars.Find(car.Id);
+            var modelUpdated = context.Models.Find(car.Model.Id);
+            updated.Model = modelUpdated;
+            updated.Chassis = car.Chassis;
+            updated.EndDateContract = car.EndDateContract;
+            updated.Insurances = car.Insurances?.Select(x => x.ToEntity()).ToList();
+            updated.Km = car.Km;
+            updated.Numberplate = car.Numberplate;
+            updated.StartDateContract = car.StartDateContract;
+            updated.TechnicalControls = car.Technicalcontrols?.Select(x => x.ToEntity()).ToList();
+            updated.VehicleStatus = car.VehicleStatus;
+            updated.Year = car.Year;
+            updated.Fuel = car.Fuel;
 
             return updated.ToTransfertObject();
         }

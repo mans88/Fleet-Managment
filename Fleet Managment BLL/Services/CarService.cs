@@ -18,11 +18,7 @@ namespace Fleet_Managment_BLL.Services
             this.unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        public List<CarTO> GetAll()
-        {
-            var s = unitOfWork.CarRepository.GetAll().Select(c => c.ToDomain().ToTransfertObject()).ToList();
-            return s;
-        }
+        public List<CarTO> GetAll() => unitOfWork.CarRepository.GetAll().Select(c => c.ToDomain().ToTransfertObject()).ToList();
 
         public CarTO GetById(int id) => unitOfWork.CarRepository.GetByID(id).ToDomain().ToTransfertObject();
 
@@ -46,7 +42,9 @@ namespace Fleet_Managment_BLL.Services
         {
             if (car is null)
                 throw new ArgumentNullException(nameof(car));
-            return unitOfWork.CarRepository.Update(car.ToDomain().ToTransfertObject());
+            var carUpdated = unitOfWork.CarRepository.Update(car.ToDomain().ToTransfertObject());
+            unitOfWork.SaveChanges();
+            return carUpdated;
         }
     }
 }
