@@ -25,15 +25,12 @@
         @foreach (var item in Model)
         {
             <tr>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Update", new { id = item.Id }) |
-                    <a asp-controller="ModelCar" asp-action="ModelAvailable" asp-route-id="item.ID">Detail</a>
+                    <a asp-controller="ModelCar" asp-action="ModelAvailable" asp-route-id="@item.Id">Detail |</a>
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
             </tr>

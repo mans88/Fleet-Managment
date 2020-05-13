@@ -1,4 +1,5 @@
 ﻿using Fleet_Managment_BLL.Interfaces;
+using FleetManagment.Shared.TransfertObject;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -23,10 +24,22 @@ namespace Fleet_Managment.Controllers
         {
             var result = modelService
                                 .GetAll()
-                                .Where(m => m.Brand.Id == id)
-                                .OrderBy(m => m);
+                                .Where(m => m.Brand.Id == id);
 
-            return View(result);
+            return View(result.OrderBy(x => x.Name));
+        }
+
+        [HttpGet]
+        public IActionResult CreateModel()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateModel(ModelTO model)
+        {
+            var created = modelService.Insert(model);
+            return RedirectToAction("ModelAvailable");
         }
     }
 }
