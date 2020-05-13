@@ -28,16 +28,25 @@ namespace Fleet_Managment_BLL.Services
             if (brand is null)
                 throw new ArgumentNullException(nameof(brand));
 
-            return unitOfWork.BrandRepository.Insert(brand.ToDomain().ToTransfertObject());
+            var added = unitOfWork.BrandRepository.Insert(brand.ToDomain().ToTransfertObject());
+            unitOfWork.SaveChanges();
+            return added;
         }
 
-        public bool RemoveById(int id) => unitOfWork.BrandRepository.RemoveById(id);
+        public bool RemoveById(int id)
+        {
+            var removed = unitOfWork.BrandRepository.RemoveById(id);
+            unitOfWork.SaveChanges();
+            return removed;
+        }
 
         public BrandTO Update(BrandTO brand)
         {
             if (brand is null)
                 throw new ArgumentNullException(nameof(brand));
-            return unitOfWork.BrandRepository.Update(brand.ToDomain().ToTransfertObject());
+            var updated = unitOfWork.BrandRepository.Update(brand.ToDomain().ToTransfertObject());
+            unitOfWork.SaveChanges();
+            return updated;
         }
     }
 }

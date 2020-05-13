@@ -11,7 +11,32 @@
     <div class="col-md-4">
         <form asp-action="CreateCar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+            <div class="form-group">
+                <label asp-for="IdBrand" class="control-label"> Brand </label>
+                <select asp-for="IdBrand" class="form-control" id="brand-select">
+                    @foreach (var brand in @ViewBag.Brands)
+                    {
+                        <option value="@brand.Id">@brand.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="IdBrand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdModel" class="control-label"> Model </label>
+                <select asp-for="IdModel" class="form-control" id="model-select">
+                    <option selected>Choose a brand</option>
+                </select>
+                <span asp-validation-for="IdModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="Fuel" class="control-label"> Fuel </label>
+                    <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FleetManagment.Shared.Enumeration.Fuel>()" class="form-control">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Fuel" class="text-danger"></span>
+                </div>
+            </div>
             <div class="form-group">
                 <label asp-for="Numberplate" class="control-label"></label>
                 <input asp-for="Numberplate" value="1-lds-488" class="form-control" />
@@ -47,36 +72,7 @@
                 <input asp-for="Km" value="123456" class="form-control" />
                 <span asp-validation-for="Km" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="IdBrand" class="control-label"> Brand </label>
-                <select asp-for="IdBrand" class="">
-                    @foreach (var brand in @ViewBag.Brands)
-                    {
-                        <option value="@brand.Id">@brand.Name</option>
-                    }
-                </select>
-                <span asp-validation-for="IdBrand" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdModel" class="control-label"> Model </label>
-                <select asp-for="IdModel" class="form-control">
-                    @foreach (var modelCar in @ViewBag.Models)
-                    {
-                        <option value="@modelCar.Id">@modelCar.Name</option>
-                    }
-                </select>
-                <span asp-validation-for="IdModel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="form-group">
-                    <label asp-for="Fuel" class="control-label"> Fuel </label>
-                    <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FleetManagment.Shared.Enumeration.Fuel>()" class="form-control">
-                        <option selected="selected" value="">Please select</option>
-                    </select>
-                    <span asp-validation-for="Fuel" class="text-danger"></span>
-                </div>
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            <input type="submit" value="Create" class="btn btn-primary" />
         </form>
     </div>
 </div>
@@ -87,4 +83,12 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/car.js"></script>
+    <script type="text/javascript">
+        $("#brand-select").on("change", function () {
+            var id = $(this).children("option:selected").val();
+            var modelSelect = "model-select"
+            GetModelsByBrand(id, modelSelect);
+        })
+    </script>
 }

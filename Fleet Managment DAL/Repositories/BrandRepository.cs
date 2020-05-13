@@ -36,10 +36,14 @@ namespace Fleet_Managment_DAL.Repositories
         {
             if (brand is null) throw new ArgumentNullException(nameof(brand));
 
-            var models = context.Models.Select(c => c.Brand.Id == brand.Id);
             var brandEntity = brand.ToEntity();
 
-            brandEntity.Models = (List<Model>)models;
+            if (brand.Models != null)
+            {
+                var models = context.Models.Select(c => c.Brand.Id == brand.Id);
+
+                brandEntity.Models = (List<Model>)models;
+            }
 
             return context.Brands.Add(brandEntity).Entity.ToTransfertObject();
         }

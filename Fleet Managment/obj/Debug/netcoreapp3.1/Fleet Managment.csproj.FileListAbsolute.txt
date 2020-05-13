@@ -1,6 +1,15 @@
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.csprojAssemblyReference.cache
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.csproj.CoreCompileInputs.cache
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.RazorAssemblyInfo.cache
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.RazorAssemblyInfo.cs
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.AssemblyInfoInputs.cache
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.AssemblyInfo.cs
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\testhost.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\testhost.exe
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -52,7 +61,6 @@ C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcore
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.CrossPlatEngine.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.Utilities.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.Common.dll
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\testhost.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -70,14 +78,17 @@ C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcore
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\SQLitePCLRaw.nativelibrary.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\System.Text.Json.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
@@ -227,18 +238,15 @@ C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcore
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\FleetManagment.DAL.pdb
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\FleetManagment.DAL.Test.pdb
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\bin\Debug\netcoreapp3.1\FleetManagment.Shared.pdb
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.csprojAssemblyReference.cache
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.csproj.CoreCompileInputs.cache
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.RazorAssemblyInfo.cache
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.RazorAssemblyInfo.cs
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.AssemblyInfoInputs.cache
-C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.AssemblyInfo.cs
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.TagHelpers.input.cache
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.TagHelpers.output.cache
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.RazorCoreGenerate.cache
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\Brand\BrandAvailable.cshtml.g.cs
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\Brand\CreateBrand.cshtml.g.cs
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\Brand\Update.cshtml.g.cs
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\Car\CarAvailable.cshtml.g.cs
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\Car\CreateCar.cshtml.g.cs
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\Car\GetModels.cshtml.g.cs
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\Car\Update.cshtml.g.cs
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
@@ -256,3 +264,4 @@ C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcore
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.pdb
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.genruntimeconfig.cache
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\ModelCar\ModelAvailable.cshtml.g.cs

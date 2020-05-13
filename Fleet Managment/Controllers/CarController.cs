@@ -17,9 +17,7 @@ namespace Fleet_Managment.Controllers
 {
     public class CarController : Controller
     {
-        // private readonly IUnitOfWork unitOfWork;
         private ICarService carService;
-
         private IModelService modelService;
         private IBrandService brandService;
 
@@ -43,7 +41,6 @@ namespace Fleet_Managment.Controllers
 
             foreach (var item in allCars)
             {
-                //var models = modelService.GetById(brand.Models.Select(x=>x.Id == brand.));
                 CarListingViewModel carModel = new CarListingViewModel
                 {
                     IdCar = item.Id,
@@ -70,7 +67,6 @@ namespace Fleet_Managment.Controllers
 
             ViewBag.Brands = brands;
             ViewBag.Models = models;
-
             return View();
         }
 
@@ -101,6 +97,17 @@ namespace Fleet_Managment.Controllers
         }
 
         [HttpGet]
+        public IActionResult GetModels(int id)
+        {
+            var result = modelService.GetAll()
+                                     .Where(c => c.Brand.Id == id)
+                                     .OrderBy(c => c.Name)
+                                     .ToList();
+
+            return PartialView(result);
+        }
+
+        [HttpGet]
         public IActionResult Update(int id)
         {
             CarTO car = new CarTO();
@@ -119,12 +126,9 @@ namespace Fleet_Managment.Controllers
             carAdded.Fuel = car.Fuel;
 
             List<BrandTO> brands = brandService.GetAll();
-            List<ModelTO> models = modelService.GetAll();
+            List<ModelTO> models = modelService.GetAll().Where(m => m.Brand.Id == carAdded.IdBrand).ToList();
             ViewBag.Brands = brands;
             ViewBag.Models = models;
-
-            //carService.Update(car);
-            //return RedirectToAction("CarAvailable");
 
             return View(carAdded);
         }

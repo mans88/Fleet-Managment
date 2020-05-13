@@ -1,6 +1,8 @@
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\testhost.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\testhost.exe
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\FleetManagment.DAL.Test.deps.json
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\FleetManagment.DAL.Test.runtimeconfig.json
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\FleetManagment.DAL.Test.runtimeconfig.dev.json
@@ -36,13 +38,14 @@ C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.CrossPlatEngine.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.Utilities.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.Common.dll
-C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\testhost.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\Moq.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Manssour\source\repos\Fleet Managment\FleetManagment.DAL.Test\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll

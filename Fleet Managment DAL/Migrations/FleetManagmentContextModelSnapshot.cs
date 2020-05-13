@@ -108,7 +108,7 @@ namespace Fleet_Managment_DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BrandId")
+                    b.Property<int>("BrandId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -165,7 +165,9 @@ namespace Fleet_Managment_DAL.Migrations
                 {
                     b.HasOne("Fleet_Managment_DAL.Entities.Brand", "Brand")
                         .WithMany("Models")
-                        .HasForeignKey("BrandId");
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Fleet_Managment_DAL.Entities.TechnicalControl", b =>

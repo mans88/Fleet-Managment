@@ -17,6 +17,40 @@
                 <span asp-validation-for="IdCar" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="IdBrand" class="control-label"> Brand </label>
+                <select asp-for="IdBrand" id="brand-select" class="form-control">
+                    @foreach (var brand in @ViewBag.Brands)
+                    {
+                        if (brand.Id == Model.IdBrand)
+                        {
+                            <option value="@brand.Id" selected>@brand.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@brand.Id">@brand.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="IdBrand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdModel" class="control-label"> Model </label>
+                <select asp-for="IdModel" id="model-select" class="form-control">
+                    @foreach (var carModel in @ViewBag.Models)
+                    {
+                        if (carModel.Id == Model.IdBrand)
+                        {
+                            <option value="@carModel.Id" selected>@carModel.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@carModel.Id">@carModel.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="IdModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Numberplate" class="control-label"></label>
                 <input asp-for="Numberplate" class="form-control" />
                 <span asp-validation-for="Numberplate" class="text-danger"></span>
@@ -52,44 +86,31 @@
                 <span asp-validation-for="Km" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdBrand" class="control-label"> Brand </label>
-                <select asp-for="IdBrand" class="form-control">
-                    @foreach (var brand in @ViewBag.Brands)
-                    {
-                        <option value="@brand.Id">@brand.Name</option>
-                    }
+                <label asp-for="Fuel" class="control-label"> Fuel </label>
+                <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FleetManagment.Shared.Enumeration.Fuel>()" class="form-control">
+                    <option selected="selected" value="">Please select</option>
                 </select>
-                <span asp-validation-for="IdBrand" class="text-danger"></span>
+                <span asp-validation-for="Fuel" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="IdModel" class="control-label"> Model </label>
-                <select asp-for="IdModel" class="form-control">
-                    @foreach (var modelCar in @ViewBag.Models)
-                    {
-                        <option value="@modelCar.Id">@modelCar.Name</option>
-                    }
-                </select>
-                <span asp-validation-for="IdModel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="form-group">
-                    <label asp-for="Fuel" class="control-label"> Fuel </label>
-                    <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FleetManagment.Shared.Enumeration.Fuel>()" class="form-control">
-                        <option selected="selected" value="">Please select</option>
-                    </select>
-                    <span asp-validation-for="Fuel" class="text-danger"></span>
-                </div>
 
-                <div class="form-group">
-                    <input type="submit" value="Update" class="btn btn-primary" />
-                </div>
-                <div>
-                    <a asp-action="CarAvailable">Back to List</a>
-                </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+            <div>
+                <a asp-action="CarAvailable" class="btn btn-primary">Back to List</a>
+            </div>
         </form>
     </div>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/car.js"></script>
+    <script type="text/javascript">
+        $("#brand-select").on("change", function () {
+            var id = $(this).children("option:selected").val();
+            var modelSelect = "model-select"
+            GetModelsByBrand(id, modelSelect);
+        })
+    </script>
 }

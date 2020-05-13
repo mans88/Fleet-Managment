@@ -1,0 +1,6 @@
+﻿@model IEnumerable<FleetManagment.Shared.TransfertObject.ModelTO>
+
+@foreach (var carModel in Model)
+{
+    <option value="@carModel.Id">@carModel.Name</option>
+}

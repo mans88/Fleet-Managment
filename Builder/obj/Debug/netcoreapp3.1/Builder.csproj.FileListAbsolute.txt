@@ -1,6 +1,8 @@
 C:\Users\Manssour\source\repos\Fleet Managment\Builder\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Builder\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Builder\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Manssour\source\repos\Fleet Managment\Builder\bin\Debug\netcoreapp3.1\testhost.exe
+C:\Users\Manssour\source\repos\Fleet Managment\Builder\bin\Debug\netcoreapp3.1\testhost.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Builder\bin\Debug\netcoreapp3.1\Builder.deps.json
 C:\Users\Manssour\source\repos\Fleet Managment\Builder\bin\Debug\netcoreapp3.1\Builder.dll
 C:\Users\Manssour\source\repos\Fleet Managment\Builder\bin\Debug\netcoreapp3.1\Builder.pdb

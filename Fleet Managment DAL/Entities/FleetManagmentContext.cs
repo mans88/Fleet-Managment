@@ -31,6 +31,12 @@ namespace Fleet_Managment_DAL.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Model>()
+            .HasOne(m => m.Brand)
+            .WithMany(b => b.Models)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
             // modelBuilder.Entity<ModelFuel>().HasKey(sc => new { sc.ModelId, sc.FuelId });
             //modelBuilder.Entity<ModelFuel>()
             //   .HasOne(mf => mf.Model)
