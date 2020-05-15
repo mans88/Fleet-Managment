@@ -40,7 +40,6 @@ namespace Fleet_Managment_DAL.Repositories
             var brand = context.Brands.Find(model.Brand.Id);
             var modelEntity = model.ToEntity();
 
-
             modelEntity.Brand = brand;
 
             return context.Models.Add(modelEntity).Entity.ToTransfertObject();

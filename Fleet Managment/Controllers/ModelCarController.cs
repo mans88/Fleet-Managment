@@ -1,4 +1,7 @@
-﻿using Fleet_Managment_BLL.Interfaces;
+﻿using Fleet_Managment.Models;
+using Fleet_Managment_BLL.Domain;
+using Fleet_Managment_BLL.Interfaces;
+using Fleet_Managment_BLL.Services;
 using FleetManagment.Shared.TransfertObject;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,10 +12,12 @@ namespace Fleet_Managment.Controllers
     public class ModelCarController : Controller
     {
         private IModelService modelService;
+        private IBrandService brandService;
 
-        public ModelCarController(IModelService modelService)
+        public ModelCarController(IModelService modelService, IBrandService brandService)
         {
             this.modelService = modelService ?? throw new ArgumentNullException(nameof(modelService));
+            this.brandService = brandService ?? throw new ArgumentNullException(nameof(brandService));
         }
 
         public IActionResult Index()
@@ -20,26 +25,28 @@ namespace Fleet_Managment.Controllers
             return View();
         }
 
-        public IActionResult ModelAvailable(int id)
-        {
-            var result = modelService
-                                .GetAll()
-                                .Where(m => m.Brand.Id == id);
-
-            return View(result.OrderBy(x => x.Name));
-        }
-
         [HttpGet]
-        public IActionResult CreateModel()
+        public IActionResult CreateModel(int id)
         {
-            return View();
+            ModelAddedViewModel model = new ModelAddedViewModel
+            {
+                IdBrand = id,
+                BrandName = brandService.GetById(id).Name,
+            };
+            return View(model);
         }
 
         [HttpPost]
-        public IActionResult CreateModel(ModelTO model)
+        public IActionResult CreateModel(ModelAddedViewModel model)
         {
-            var created = modelService.Insert(model);
-            return RedirectToAction("ModelAvailable");
+            var brand = brandService.GetById(model.IdBrand);
+            ModelTO modelTO = new ModelTO
+            {
+                Name = model.ModelName,
+                Brand = brand
+            };
+            var created = modelService.Insert(modelTO);
+            return RedirectToAction("BrandAvailable", "Brand");
         }
     }
 }

@@ -1,17 +1,10 @@
 ﻿using Fleet_Managment.Models;
-using Fleet_Managment_BLL.Domain;
 using Fleet_Managment_BLL.Interfaces;
-using FleetManagment.Shared.Enumeration;
 using FleetManagment.Shared.TransfertObject;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.FlowAnalysis;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.View;
-using Moq;
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Fleet_Managment.Controllers
 {
@@ -24,7 +17,7 @@ namespace Fleet_Managment.Controllers
         public CarController(ICarService carService, IBrandService brandService, IModelService modelService)
         {
             this.carService = carService ?? throw new ArgumentNullException(nameof(carService));
-            this.brandService = brandService ?? throw new ArgumentNullException(nameof(carService));
+            this.brandService = brandService ?? throw new ArgumentNullException(nameof(brandService));
             this.modelService = modelService ?? throw new ArgumentNullException(nameof(modelService));
         }
 

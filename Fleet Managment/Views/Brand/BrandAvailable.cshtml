@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FleetManagment.Shared.TransfertObject.BrandTO>
+﻿@model IEnumerable<Fleet_Managment.Models.BrandAndModelListViewModel>
 
 @{
     ViewData["Title"] = "BrandAvailable";
@@ -12,13 +12,12 @@
 <table class="table">
     <thead>
         <tr>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.Id)
-                </th>*@
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.BrandName)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Models)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -26,12 +25,19 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.BrandName)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Update", new { id = item.Id }) |
-                    <a asp-controller="ModelCar" asp-action="ModelAvailable" asp-route-id="@item.Id">Detail |</a>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    <select class="form-control">
+                        @foreach (var modelBrand in item.Models)
+                        {
+                            <option value="@modelBrand.Id">@modelBrand.Name</option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    <a asp-controller="ModelCar" asp-action="CreateModel" asp-route-id=@item.IdBrand>New Model</a> |
+                    <a asp-action="Delete" asp-route-id=@item.IdBrand>Delete</a>
                 </td>
             </tr>
         }

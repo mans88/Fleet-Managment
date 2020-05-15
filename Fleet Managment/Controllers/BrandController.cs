@@ -1,7 +1,9 @@
-﻿using Fleet_Managment_BLL.Interfaces;
+﻿using Fleet_Managment.Models;
+using Fleet_Managment_BLL.Interfaces;
 using FleetManagment.Shared.TransfertObject;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Fleet_Managment.Controllers
@@ -26,8 +28,24 @@ namespace Fleet_Managment.Controllers
         public IActionResult BrandAvailable()
         {
             var brands = brandService.GetAll().ToList();
+            var models = modelService.GetAll().ToList();
 
-            return View(brands.OrderBy(x => x.Name));
+            List<BrandAndModelListViewModel> lb = new List<BrandAndModelListViewModel>();
+            foreach (var b in brands)
+            {
+                BrandAndModelListViewModel brandAndModel = new BrandAndModelListViewModel
+                {
+                    IdBrand = b.Id,
+                    BrandName = b.Name,
+                    Models = models
+                            .Where(m => m.Brand.Id == b.Id)
+                            .OrderBy(m => m.Name)
+                            .ToList(),
+                };
+                lb.Add(brandAndModel);
+            }
+
+            return View(lb);
         }
 
         public IActionResult Delete(int id)

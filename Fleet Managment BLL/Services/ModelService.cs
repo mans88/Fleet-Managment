@@ -27,7 +27,9 @@ namespace Fleet_Managment_BLL.Services
             if (model is null)
                 throw new ArgumentNullException(nameof(model));
 
-            return unitOfWork.ModelRepository.Insert(model.ToDomain().ToTransfertObject());
+            var added = unitOfWork.ModelRepository.Insert(model.ToDomain().ToTransfertObject());
+            unitOfWork.SaveChanges();
+            return added;
         }
 
         public bool RemoveById(int id) => unitOfWork.ModelRepository.RemoveById(id);
