@@ -48,5 +48,29 @@ namespace Fleet_Managment.Controllers
             var created = modelService.Insert(modelTO);
             return RedirectToAction("BrandAvailable", "Brand");
         }
+
+        public IActionResult Details(int id)
+        {
+            var result = modelService
+                            .GetAll()
+                            .Where(x => x.Brand.Id == id);
+            return View(result);
+        }
+
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            ModelTO model = modelService.GetById(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Update(ModelTO modelTO)
+        {
+            modelTO.Brand = modelService.GetById(modelTO.Id).Brand;
+            modelService.Update(modelTO);
+            var idBrand = modelTO.Brand.Id;
+            return RedirectToAction("Details", new { id = idBrand });
+        }
     }
 }

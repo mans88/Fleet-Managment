@@ -68,7 +68,7 @@ namespace Fleet_Managment_DAL.Repositories
             if (entity is null) throw new ArgumentNullException(nameof(entity));
             var updated = context.Models.FirstOrDefault(x => x.Id == entity.Id);
             updated.Name = entity.Name;
-            updated.Brand = entity.Brand?.ToEntity();
+            // updated.Brand = entity.Brand?.ToEntity();
 
             return updated.ToTransfertObject();
         }

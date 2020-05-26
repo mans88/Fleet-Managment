@@ -15,6 +15,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.BrandName)
             </th>
+            <th></th>
             <th>
                 @Html.DisplayNameFor(model => model.Models)
             </th>
@@ -28,16 +29,22 @@
                     @Html.DisplayFor(modelItem => item.BrandName)
                 </td>
                 <td>
-                    <select class="form-control">
+                    <a asp-action="Delete" asp-route-id=@item.IdBrand>Delete</a>
+                </td>
+                <td>
+                    <select id="modelSelected" class="form-control">
                         @foreach (var modelBrand in item.Models)
                         {
-                            <option value="@modelBrand.Id">@modelBrand.Name</option>
+                            <option value="@modelBrand.Id">
+                                @modelBrand.Name
+                            </option>
+                            <a asp-controller="ModelCar" asp-action="Delete" asp-route-id="@modelBrand.Id">Delete</a>
                         }
                     </select>
                 </td>
                 <td>
                     <a asp-controller="ModelCar" asp-action="CreateModel" asp-route-id=@item.IdBrand>New Model</a> |
-                    <a asp-action="Delete" asp-route-id=@item.IdBrand>Delete</a>
+                    <a asp-controller="ModelCar" asp-action="Details" asp-route-id="@item.IdBrand">Details</a>
                 </td>
             </tr>
         }

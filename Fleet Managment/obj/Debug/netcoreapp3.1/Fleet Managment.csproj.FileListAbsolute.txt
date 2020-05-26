@@ -265,3 +265,5 @@ C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcore
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.pdb
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Fleet Managment.genruntimeconfig.cache
 C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\ModelCar\CreateModel.cshtml.g.cs
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\ModelCar\Details.cshtml.g.cs
+C:\Users\Manssour\source\repos\Fleet Managment\Fleet Managment\obj\Debug\netcoreapp3.1\Razor\Views\ModelCar\Update.cshtml.g.cs

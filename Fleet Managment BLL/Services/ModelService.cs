@@ -32,13 +32,22 @@ namespace Fleet_Managment_BLL.Services
             return added;
         }
 
-        public bool RemoveById(int id) => unitOfWork.ModelRepository.RemoveById(id);
+        public bool RemoveById(int id)
+        {
+            var removed = unitOfWork.ModelRepository.RemoveById(id);
+            unitOfWork.SaveChanges();
+            return removed;
+        }
 
         public ModelTO Update(ModelTO model)
         {
             if (model is null)
                 throw new ArgumentNullException(nameof(model));
-            return unitOfWork.ModelRepository.Update(model.ToDomain().ToTransfertObject());
+            var updated = unitOfWork.ModelRepository
+                                    .Update(model.ToDomain()
+                                    .ToTransfertObject());
+            unitOfWork.SaveChanges();
+            return updated;
         }
     }
 }
