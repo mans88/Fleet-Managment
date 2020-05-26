@@ -72,5 +72,14 @@ namespace Fleet_Managment.Controllers
             var idBrand = modelTO.Brand.Id;
             return RedirectToAction("Details", new { id = idBrand });
         }
+
+        public IActionResult Delete(int id)
+        {
+            var idBrand = modelService.GetById(id).Brand.Id;
+
+            var result = modelService.RemoveById(id);
+
+            return RedirectToAction("Details", new { id = idBrand });
+        }
     }
 }
